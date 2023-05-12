@@ -1,7 +1,22 @@
 <div class="container-fluid container-cards-pf container-dashboard">
     <div class="row" style="min-height: 35px"></div>
     <div class="row row-cards-pf">
-
+        <div class="card-pf">
+        <div style="font-size: 14px" class="card-pf-footer">
+            <p>
+                <a routerLink="/apis" class="">
+                    <span class="fa fa-list"></span><span>View All APIs</span>
+                </a>
+                <span></span>
+                <a routerLink="/apis/import" class="pull-right" style="margin-left: 15px">
+                    <span class="pficon pficon-import"></span><span>Import API</span>
+                </a>
+                <a routerLink="/apis/create" class="pull-right" style="margin-left: 15px">
+                    <span class="pficon pficon-add-circle-o"></span><span>Create New API</span>
+                </a>
+            </p>
+        </div>
+        </div>
         <!-- Left Column -->
         <div class="col-xs-12 col-sm-6 col-md-6">
 
@@ -10,19 +25,19 @@
                 <div class="card-pf-heading">
                     <h2 class="card-pf-title">
                         <span class="fa fa-fw fa-comment"></span>
-                        <span>Welcome to <strong>Apicurio</strong>!</span>
+                        <span>Welcome to <strong>Boilerplate Studio</strong>!</span>
                     </h2>
                 </div>
                 <div class="card-pf-body">
                     <p>
-                        Hey <strong>{{ user().name }}</strong>, thanks for logging into <strong>Apicurio</strong>.  Use
+                        Hey <strong>{{ user().name }}</strong>, thanks for logging into <strong>Boilerplate Studio</strong>.  Use
                         this tool to create, modify and collaborate on new and existing APIs (with just a few clicks).
                     </p>
                     <div>
                         <ul>
-                            <li><a href="https://www.apicur.io" target="_blank">Learn more about the Apicurio project</a></li>
-                            <li><a href="https://www.apicur.io/studio/roadmap" target="_blank">View our Roadmap</a></li>
-                            <li><a href="https://www.apicur.io/contact" target="_blank">Question or Ideas?  Contact our development team!</a></li>
+                            <li><a href="https://www.boilerplate.io" target="_blank">Learn more about the Boilerplate project</a></li>
+                            <li><a href="https://www.boilerplate.io/studio/roadmap" target="_blank">View our Roadmap</a></li>
+                            <li><a href="https://www.boilerplate.io/contact" target="_blank">Question or Ideas?  Contact our development team!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,20 +97,7 @@
                             <p><markdown-summary [data]="api.description" emptyText="No description available."></markdown-summary></p>
                         </div>
                     </div>
-                    <div style="font-size: 14px" class="card-pf-footer">
-                        <p>
-                            <a routerLink="/apis" class="">
-                                <span class="fa fa-list"></span><span>View All APIs</span>
-                            </a>
-                            <span></span>
-                            <a routerLink="/apis/import" class="pull-right" style="margin-left: 15px">
-                                <span class="pficon pficon-import"></span><span>Import API</span>
-                            </a>
-                            <a routerLink="/apis/create" class="pull-right" style="margin-left: 15px">
-                                <span class="pficon pficon-add-circle-o"></span><span>Create New API</span>
-                            </a>
-                        </p>
-                    </div>
+
                 </div>
             </div>
         </div>

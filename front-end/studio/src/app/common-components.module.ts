@@ -22,6 +22,8 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {CommonModule} from "@angular/common";
 
 import {DropDownComponent} from './components/common/drop-down.component';
+import {DeploymentOptionsComponent} from './components/common/deployment-options.component';
+import {MonitoringOptionsComponent} from './components/common/monitoring-options.component';
 import {FormErrorMessageComponent} from "./components/common/form-error-message.component";
 import {CodeEditorComponent} from "./components/common/code-editor.component";
 import {AceEditorComponent} from "./components/common/ace-editor.component";
@@ -35,14 +37,14 @@ import {MarkdownEditorComponent} from './components/common/markdown-editor.compo
         CommonModule, FormsModule, ModalModule, BsDropdownModule
     ],
     declarations: [
-        DropDownComponent, FormErrorMessageComponent, CodeEditorComponent, AceEditorComponent,
+        DropDownComponent,DeploymentOptionsComponent,MonitoringOptionsComponent, FormErrorMessageComponent, CodeEditorComponent, AceEditorComponent,
         TextAreaAutosize, DivAutoHeight, TextBoxAutosize, MarkdownComponent, MarkdownSummaryComponent,
         MarkdownEditorComponent
     ],
     providers: [
     ],
     exports: [
-        DropDownComponent, FormErrorMessageComponent, CodeEditorComponent, MarkdownEditorComponent,
+        DropDownComponent,DeploymentOptionsComponent,MonitoringOptionsComponent, FormErrorMessageComponent, CodeEditorComponent, MarkdownEditorComponent,
         TextAreaAutosize, DivAutoHeight, TextBoxAutosize, MarkdownComponent, MarkdownSummaryComponent
     ]
 })

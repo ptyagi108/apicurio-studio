@@ -1,0 +1,27 @@
+{
+"router-based-api":true,
+
+"schedule-based-api":false,
+
+"batch-api":false,
+
+  "maven": {
+    "groupId": "com.nttdata",
+    "artifactId": "mule-rest-api-template",
+    "appVersion": "1.0.1-SNAPSHOT",
+    "apiName": "mule-rest-api-template",
+    "appRuntimeVersion": "4.4.1-20220221",
+    "deploymentProfile": "cloudhub"
+   
+  },
+  
+   "commonServices": {
+   "enableLogging":true,
+   "enableErrorHandling":true
+      },
+	  
+	  
+ "devops": {
+   "tools":"azure"
+      }
+    }

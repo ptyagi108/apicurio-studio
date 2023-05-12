@@ -1,0 +1,56 @@
+#%RAML 1.0
+title: Healthcare Process API
+version: v1
+mediaType: 
+  - application/json
+protocols:
+  - HTTPS
+
+documentation:
+  - !include documentation/healtcare-prc-api.raml
+  
+uses:
+  traitsLib: exchange_modules/7b7f7c6d-fb9c-41fe-9a73-5eb790721add/common-modules/1.0.1/traits/lib.raml
+  securityScheme: exchange_modules/7b7f7c6d-fb9c-41fe-9a73-5eb790721add/common-modules/1.0.1//securitySchemes/lib.raml
+
+resourceTypes:
+  health-resourceType: !include resourceTypes/health-resourceType.raml
+  common-resourceType: !include resourceTypes/common-resourceType.raml
+
+annotationTypes:
+  classification: string
+
+/health:
+  description: API ping status
+  securedBy: [securityScheme.basicAuth]
+  is:
+    - traitsLib.clientIdHeaders
+    - traitsLib.standardHeaders
+  type:
+    health-resourceType
+
+/EDIHealthcarerequest:
+  description: "Eligibility and benefits Enquiry ,Claims Status and Enquiry"
+  securedBy:
+    - securityScheme.basicAuth
+  post:
+    body:
+      application/json:
+        type: !include dataTypes/post-eligibility-and-claims-request-dataTypes.raml
+        example:
+          !include examples/post-claims-request-example.raml
+    responses:
+      200:
+        body:
+          type: !include dataTypes/post-eligibility-and-claims-response-dataTypes.raml
+          example:
+            !include examples/post-claims-response-example.raml
+
+    
+
+      
+
+      
+
+
+

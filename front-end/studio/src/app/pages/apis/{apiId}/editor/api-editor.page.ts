@@ -260,9 +260,9 @@ export class ApiEditorPageComponent extends AbstractPageComponent implements Aft
      */
     protected pageTitle(): string {
         if (this.apiDefinition.name) {
-            return "Apicurio Studio - API Editor :: " + this.apiDefinition.name;
+            return "Boilerplate Studio - API Editor :: " + this.apiDefinition.name;
         } else {
-            return "Apicurio Studio - API Editor";
+            return "Boilerplate Studio - API Editor";
         }
     }
 

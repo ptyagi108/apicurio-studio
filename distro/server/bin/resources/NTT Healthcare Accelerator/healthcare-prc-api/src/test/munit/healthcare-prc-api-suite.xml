@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="healthcare-prc-api-suite.xml" />
+	<munit:test name="post:\EDIHealthcarerequest:application\json:healthcare-prc-api-config-test" doc:id="a08dda0d-104c-4577-ab77-09877b876178" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="545f5374-48f1-42c7-838f-921301811675" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="path" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="originatingApplication" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_1.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_2.dwl')]" />
+					<munit:variable key="bussinessProcessName" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_3.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="service" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_4.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="originalPayload" value="#[output application/json --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_5.dwl')]" encoding="UTF-8" mediaType="application/json" />
+					<munit:variable key="destinationApplication" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_6.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="messageid" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_7.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="flowName" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_8.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="transactionId" value="#[output application/java --- readUrl('classpath://postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest\set-event_variable_9.dwl')]" encoding="UTF-8" mediaType="application/java" />
+				</munit:variables>
+			</munit:set-event>
+			<munit-tools:mock-when doc:name="Mock when" doc:id="187d7b25-1e5e-4573-bd19-2f616594aeb5" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="Request to sapi" attributeName="doc:name" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[MunitTools::getResourceAsString('postEDIHealthcarerequestapplicationjsonhealthcareprcapiconfigtest/sys-output-event.json')]" mediaType="application/json" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\EDIHealthcarerequest:application\json:healthcare-prc-api-config" doc:id="cdd21ff3-83b1-4109-af23-087c7f2ca213" name="post:\EDIHealthcarerequest:application\json:healthcare-prc-api-config"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="36a1e0d0-c2b2-4dff-94a8-4859447af41a" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\health:healthcare-prc-api-config-test" doc:id="f237005a-3a51-4ea3-83ba-e629caf61dee" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="1c1bf5bd-480a-4cea-beb9-9023e918ceea" >
+				<munit:payload value="#[readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="path" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="originatingApplication" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_1.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_2.dwl')]" />
+					<munit:variable key="bussinessProcessName" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_3.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="service" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_4.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="originalPayload" value="#[output application/json --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_5.dwl')]" encoding="UTF-8" mediaType="application/json" />
+					<munit:variable key="destinationApplication" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_6.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="messageid" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_7.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="flowName" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_8.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="transactionId" value="#[output application/java --- readUrl('classpath://gethealthhealthcareprcapiconfigtest\set-event_variable_9.dwl')]" encoding="UTF-8" mediaType="application/java" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\health:healthcare-prc-api-config" doc:id="41d26801-bbcc-4be2-9413-e1b5e88425c4" name="get:\health:healthcare-prc-api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="b7433060-6fe2-40c5-8c88-9e4cf1592a1e" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import gethealthhealthcareprcapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:cofww-logger="http://www.mulesoft.org/schema/mule/cofww-logger"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd 
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
+http://www.mulesoft.org/schema/mule/cofww-logger http://www.mulesoft.org/schema/mule/cofww-logger/current/mule-cofww-logger.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+
+	<!-- This configuration uses default algorithm (AES) and mode (CBC) -->
+	<secure-properties:config
+		name="Secure_Properties_Config"
+		doc:name="Environment-specific Secure Properties Config"
+		doc:id="bd9ab868-03b7-4337-ab9c-b3696a6dcae1"
+		file="security/secure-${mule.properties}.yaml"
+		key="${mule.encryption.key}" />
+
+	<configuration-properties
+		doc:name="Application Configuration properties"
+		doc:id="9d597060-c5a7-4084-9bc1-dbc2047cb5ea"
+		file="properties/${mule.env}.yaml" />
+	
+
+
+	<configuration-properties
+		doc:name="Common Configuration properties"
+		doc:id="0c153b17-70c4-419e-95ec-d655ff35b03b"
+		file="properties/common.yaml" />
+
+	<global-property doc:name="default mule.env"
+		doc:id="a2f524bb-d478-495b-adfa-2cea3d61e679" name="mule.env"
+		value="local" />
+
+	<global-property doc:name="default mule.encryption.key"
+		doc:id="5daf9c7c-4d35-4d3c-ba22-efacafb37be5"
+		name="mule.encryption.key" value="123456789mulesof" />
+
+	<global-property doc:name="default mule.properties"
+		doc:id="8006e975-f8b3-4555-9ef8-dab0f723b990" name="mule.properties"
+		value="local" />
+
+<!-- 	<api-gateway:autodiscovery apiId="${api.id}"
+		doc:name="API Autodiscovery"
+		doc:id="2e4647d7-8ce1-45a0-a8d4-6d5767775fa9"
+		flowRef="healthcare-exp-api-main" ignoreBasePath="true" /> -->
+	<http:listener-config name="HttpsListenerConfig">
+		<http:listener-connection host="0.0.0.0"
+			port="${http.port}" usePersistentConnections="false" />
+	</http:listener-config>
+	<http:request-config
+		name="HTTP_Request_configuration1"
+		doc:name="HTTP Request configuration"
+		doc:id="738f6843-1e57-43a9-8b1e-a4efa7b7dc32">
+		<http:request-connection
+			protocol="${http.request.protocol}" host="${http.request.host}"
+			port="${http.request.port}" />
+	</http:request-config>
+
+	<tls:context name="TLS_Context" doc:name="TLS Context"
+		doc:id="168efe16-2b19-4238-aaa2-600db5b955e2">
+		<tls:key-store type="pkcs12"
+			path="security/certs/api2.com.p12"
+			keyPassword="${secure::tls.keystore.keypassword}"
+			password="${secure::tls.keystore.password}" />
+	</tls:context>
+	<import doc:name="Import common library"
+		file="common-logging.xml"
+		doc:id="d20fa5d4-dc93-4653-944f-0a5313f6ed69" />
+	<import doc:name="Import sync exception handler"
+		doc:id="53e73a06-2bc5-4dad-850e-eddb43587bc4"
+		file="mule-sync-exception-handler.xml" />
+	<configuration doc:name="Configuration"
+		doc:id="e1ba509d-7ff8-4879-8cfa-0990514dd1b6"
+		defaultErrorHandler-ref="global-sync-exception-strategy" />
+
+	<!-- Log library configuration -->
+</mule>

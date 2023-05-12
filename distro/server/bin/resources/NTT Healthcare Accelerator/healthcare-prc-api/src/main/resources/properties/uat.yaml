@@ -1,0 +1,14 @@
+#properties for the SBA environment
+  
+api:
+  id: "123456" 
+  
+#Http Listener Configuration
+http:
+  port: "8081" 
+  request:
+    protocol: "HTTP"
+    host: "mule-worker-internal-nov-sales-order-process-api-dev.us-e1.cloudhub.io"
+    port: "8091"
+    path: "api/orders" 
+

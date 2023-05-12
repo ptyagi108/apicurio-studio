@@ -79,7 +79,7 @@
         <version.clean.plugin>3.2.0</version.clean.plugin>
         <version.compiler.plugin>3.10.1</version.compiler.plugin>
         <version.dependency.plugin>3.4.0</version.dependency.plugin>
-        <version.deploy.plugin>3.0.0</version.deploy.plugin>
+        <version.deploy.plugin>3.0.0-M1</version.deploy.plugin>
         <version.gatling.plugin>4.2.9</version.gatling.plugin>
         <version.install.plugin>3.1.0</version.install.plugin>
         <version.jar.plugin>3.3.0</version.jar.plugin>
@@ -91,7 +91,7 @@
         <version.surefire.plugin>2.22.2</version.surefire.plugin>
         <version.surefire-report.plugin>2.22.2</version.surefire-report.plugin>
         <version.war.plugin>3.3.2</version.war.plugin>
-        <version.frontend-maven.plugin>1.12.1</version.frontend-maven.plugin>
+        <version.frontend-maven.plugin>1.12.0</version.frontend-maven.plugin>
         <version.scala-maven.plugin>4.8.0</version.scala-maven.plugin>
         <version.jandex-maven.plugin>1.2.3</version.jandex-maven.plugin>
         <version.properties-maven-plugin>1.1.0</version.properties-maven-plugin>
@@ -118,7 +118,7 @@
         <version.javax.jms.jms-api>2.0.1</version.javax.jms.jms-api>
         <version.javax.json>1.1.4</version.javax.json>
         <version.junit>4.13.2</version.junit>
-        <version.org.apache.httpcomponents>4.5.14</version.org.apache.httpcomponents>
+        <version.org.apache.httpcomponents>4.5.10</version.org.apache.httpcomponents>
         <version.org.apache.httpcore>4.4.16</version.org.apache.httpcore>
         <version.org.apache.commons.commons-pool2>2.11.1</version.org.apache.commons.commons-pool2>
         <version.org.eclipse.mylyn.github>2.1.5</version.org.eclipse.mylyn.github>
@@ -201,6 +201,36 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
                 <version>${version.org.apache.commons.commons-pool2}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nttdata.fmpp.boilerplate</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nttdata.fmpp.boilerplate</groupId>
+                <artifactId>bsh</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nttdata.fmpp.boilerplate</groupId>
+                <artifactId>imageinfo</artifactId>
+                <version>1.1</version>
+            </dependency>
+<!--            <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>jax-rs</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+            <dependency>
+                <groupId>com.nttdata.fmpp.boilerplate</groupId>
+                <artifactId>resolver</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nttdata.fmpp.boilerplate</groupId>
+                <artifactId>ant</artifactId>
+                <version>1.1</version>
             </dependency>
             <dependency>
                 <groupId>org.json</groupId>
@@ -526,11 +556,7 @@
                         </systemProperties>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>${version.surefire-report.plugin}</version>
-                </plugin>
+
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>

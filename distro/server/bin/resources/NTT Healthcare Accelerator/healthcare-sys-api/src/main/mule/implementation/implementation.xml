@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:x12="http://www.mulesoft.org/schema/mule/x12" xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp"
+	xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
+http://www.mulesoft.org/schema/mule/x12 http://www.mulesoft.org/schema/mule/x12/current/mule-x12.xsd">
+	
+
+	<sub-flow name="eligibility-implementationSub_Flow" doc:id="f29dac6c-f80b-4cce-8d76-185be49e20f4" >
+	<set-variable value='"healthcare-sys-api-eligibility-subFlow"' doc:name="Set flowName" doc:id="8fc8e769-5f8f-47e6-a801-49f488dce907" variableName="flowName"/>
+		<flow-ref doc:name="logger-start-process-flow" doc:id="b30b8ccc-0e96-4bf5-bca4-0bc8724915f8" name="logger-start-process-flow"/>
+		<flow-ref doc:name="logger-payload-as-string-flow" doc:id="52c0a2bb-2a26-4905-8195-1c030d09aed7" name="logger-payload-as-string-flow"/>
+		<flow-ref doc:name="logger-before-http" doc:id="46f77e07-1319-4edf-9da8-696c6843dd34" name="logger-before-api-call-flow"/>
+		<http:request method="POST" doc:name="Request to system api" doc:id="98c23f86-c30d-4582-82aa-b779151270c0" config-ref="HTTP_Request_configuration" path="${http.request.path.eligibility}" >
+			<http:headers ><![CDATA[#[output application/java
+---
+{
+	"Authorization" : "Basic NMBYUGYU"
+}]]]></http:headers>
+		</http:request>
+		<!-- <http:request method="POST" doc:name="Request to system api" doc:id="3a6e7182-9631-4175-9bf1-cfb69fe4cfd8" config-ref="HTTP_Request_configuration" path="${http.request.path}" /> -->
+		<flow-ref doc:name="logger-after-http-request" doc:id="5588faa9-a53a-411f-bb87-bdbdce9de3c2" name="logger-after-api-call-flow"/>
+		<flow-ref doc:name="logger-payload-as-string-flow" doc:id="ee4bf1d2-05bb-4269-9f5a-d113090dcb64" name="logger-payload-as-string-flow"/>
+		<flow-ref doc:name="logger-payload-as-string-flow" doc:id="ee2bfd2a-0fd2-4394-9c86-3ef555a5b709" name="logger-payload-as-string-flow" />
+		<flow-ref doc:name="logger-end-process-flow" doc:id="100cf107-bf5c-441b-abf3-2e11eabc873f" name="logger-end-process-flow"/>
+	
+	</sub-flow>
+	<sub-flow name="claims-inquiry-implementationSub_Flow" doc:id="de0c47f4-63e3-4a68-ad2c-fe90a32d9f9e" >
+		<set-variable value='"healthcare-exp-api-subFlow"' doc:name="Set flowName" doc:id="62230581-26e2-405a-b349-bec5969c9aa9" variableName="flowName" />
+		<flow-ref doc:name="logger-start-process-flow" doc:id="7a850422-0b44-456a-9686-cce87f283736" name="logger-start-process-flow" />
+		<flow-ref doc:name="logger-payload-as-string-flow" doc:id="cacbb187-7b39-46cf-afd3-189ebf26e3ee" name="logger-payload-as-string-flow" />
+		<flow-ref doc:name="logger-before-http" doc:id="6ff67536-8a8f-4360-9d3c-55e31300b639" name="logger-before-api-call-flow" />
+		<flow-ref doc:name="logger-after-http-request" doc:id="cfe23832-0899-4905-8c89-0365419850d7" name="logger-after-api-call-flow" />
+		<flow-ref doc:name="logger-payload-as-string-flow" doc:id="75368434-6f09-4c44-ae1c-23e50d2a0e15" name="logger-payload-as-string-flow" />
+		<flow-ref doc:name="logger-payload-as-string-flow" doc:id="de33ed31-a8fe-48f7-89bd-d6489899270a" name="logger-payload-as-string-flow" />
+		<flow-ref doc:name="logger-end-process-flow" doc:id="9db2922a-faf4-4bdc-b92d-b4f72f07b5c5" name="logger-end-process-flow" />
+	</sub-flow>
+</mule>

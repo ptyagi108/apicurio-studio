@@ -1,0 +1,6 @@
+#properties for the DEV2 environment
+  
+#Http Listener Configuration
+http:
+  port: "8081"
+  

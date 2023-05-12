@@ -1,0 +1,7 @@
+#properties for the SBA environment
+  
+#Http Listener Configuration
+http:
+  port: "8081"
+
+

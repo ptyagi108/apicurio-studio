@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">    
+    <flow name="healthcare-prc-api-main">
+        <http:listener config-ref="HttpsListenerConfig" path="/api/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <flow-ref doc:name="logger-payload-as-string-flow" doc:id="9dbf1bb1-68a8-4f73-bbec-7ffe3c0e24c8" name="logger-payload-as-string-flow" />
+		<ee:transform doc:name="set properties" doc:id="a506932f-9d59-450f-8aed-07f599bef5d4">
+			<ee:message />
+			<ee:variables>
+				<ee:set-variable variableName="originatingApplication"><![CDATA[%dw 2.0
+output application/java
+---
+"healthcare-exp-api"]]></ee:set-variable>
+				<ee:set-variable variableName="path"><![CDATA[%dw 2.0
+output application/java
+---
+attributes.requestPath]]></ee:set-variable>
+				<ee:set-variable variableName="service"><![CDATA[%dw 2.0
+output application/java
+---
+"healthcare service"]]></ee:set-variable>
+				<ee:set-variable variableName="destinationApplication"><![CDATA[%dw 2.0
+output application/java
+---
+"healthcare-sys-api"]]></ee:set-variable>
+				<ee:set-variable variableName="bussinessProcessName"><![CDATA[%dw 2.0
+output application/java
+---
+"healthcare business process"]]></ee:set-variable>
+				<ee:set-variable variableName="flowName"><![CDATA[%dw 2.0
+output application/java
+---
+"healthcare-prc-api-main"]]></ee:set-variable>
+				<ee:set-variable variableName="originalPayload"><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<flow-ref doc:name="generate-messageId-and-transactionId-subflow" doc:id="90162f09-7451-4c82-9133-cb49e12f6ef9" name="generate-messageId-and-transactionId-subflow" />
+        <apikit:router doc:name="APIkit Router" doc:id="fec888e3-827e-49fb-bd47-ef65ad85ae41" config-ref="healthcare-prc-api-config"/>
+
+           
+    </flow>
+    <flow name="healthcare-prc-api-console">
+        <http:listener config-ref="HttpsListenerConfig" path="/console/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:console config-ref="healthcare-prc-api-config" />
+        <error-handler>
+            <on-error-propagate type="APIKIT:NOT_FOUND">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Resource not found"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="get:\health:healthcare-prc-api-config">
+       	<flow-ref doc:name="Flow Reference logger-api-start-flow" doc:id="ccd0f22b-fc01-44c7-959e-88bd34a47c74" name="logger-api-start-flow" />
+		<ee:transform doc:name="Transform Message" doc:id="5dfbcb97-3359-45c3-9497-94b5b6be26a3">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  correlationId: vars.messageId,
+  transactionId: vars.transactionId,
+  message: "Healthcheck for healthcare-prc-api is successfull"
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+		<flow-ref doc:name="Flow Reference to logger-api-end-flow" doc:id="a1e63bb6-c134-48f9-ac0c-c9698a9fbd67" name="logger-api-end-flow"/>
+    </flow>
+    <flow name="post:\EDIHealthcarerequest:application\json:healthcare-prc-api-config">
+         <ee:transform doc:name="set Context Properties" doc:id="998bc490-eddf-410e-bd80-1c2491b4004c">
+            <ee:message />
+            <ee:variables>
+                <ee:set-variable variableName="context1"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="context2"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="context3"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="context4"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="flowName"><![CDATA[%dw 2.0
+output application/java
+---
+"post edi healthcare request"]]></ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+        <flow-ref doc:name="logger api start flow" doc:id="0ad60ad0-032a-4c5e-830d-23918658762c" name="logger-api-start-flow" />
+        
+        <choice doc:name="Choice" doc:id="d376da4f-3cb1-4980-8e14-c17ade8834fc" >
+			<when expression='!(isEmpty(payload."270"))'>
+				<flow-ref doc:name="eligibility-implementationSub_Flow" doc:id="6630d09d-efe8-42df-b453-db4dff54fdba" name="eligibility-implementationSub_Flow"/>
+			</when>
+			<when expression="!(isEmpty(payload.276))">
+				<flow-ref doc:name="claims-inquiry-implementationSub_Flow" doc:id="79ecccaf-6641-4f11-a7e0-2cae42c8ecc5" name="claims-inquiry-implementationSub_Flow"/>
+			</when>
+		</choice>
+          <flow-ref doc:name="logger api end flow" doc:id="4240b417-2021-4f44-81b5-12e58a788195" name="logger-api-end-flow" />
+    </flow>
+</mule>

@@ -1,0 +1,106 @@
+node {
+  //Env specific variables
+  def appName = 'Apitemp2'
+  def workerType = 'Small'
+  def workers = '1'
+  def region = 'us-west-2'
+  def envProp = 'dev'
+  def gitUrl = 'https://github.com/kunalkumarkundan31/api-template.git'
+  def environment = 'Sandbox'
+  def orgId = '7b7f7c6d-fb9c-41fe-9a73-5eb790721add'
+  def envId = 'be057240-328d-49bc-bd67-fe03f012dd52'
+  def applyPolicyFlag = 'true'
+  def apiName = 'sample-policy'
+  //def apiName=''
+
+  // System variables
+  def timeout = 2000000
+  def mvnHome = ''
+  def businessGroup = ''
+  def autoDiscoveryId = ''
+  def policyConfigFile = 'Jenkins/policy/policy_config.json'
+  def jenkinsGlobalCredDev = 'anypointCredentials'
+  def gitCredentials = 'git.credentials'
+  def anypointClientCredentials = 'anypointClientCredentials_dev'
+  def policyFile = 'policy-file'
+
+  stage('Initialize') {
+    echo 'Configure maven directory and other initialize variables'
+
+    mvnHome = tool 'MVN_HOME'
+    deleteDir()
+    echo "Mvn Directory " + mvnHome
+    echo "Application Name " + appName
+    echo "Worker Type " + workerType
+    echo "Number of Workers " + workers
+    echo "Region selected " + region
+    echo "Env Property " + envProp
+    echo "GIT URL " + gitUrl
+  }
+
+  stage('Checkout Source Code') {
+    echo 'Fetching the soure code'
+    git credentialsId: gitCredentials, branch: 'DEV', url: gitUrl
+
+  }
+
+  stage('Build') {
+    echo "Starting Build"
+    def buildComm = mvnHome + '/bin' + '/mvn clean package -DskipTests'
+    bat buildComm
+  }
+
+  stage('Munit Test') {
+    echo "Starting Munit testing"
+    configFileProvider([configFile(fileId: 'maven-mulesoft-settings', variable: 'MULE_MAVEN_SETTINGS')]) {
+      echo MULE_MAVEN_SETTINGS
+      def munitComm = mvnHome + '/bin' + '/mvn -s ' + MULE_MAVEN_SETTINGS + ' clean package'
+      bat munitComm
+    }
+
+  }
+
+  stage('Apply Policy') {
+
+    if (applyPolicyFlag == 'true' && apiName != '') {
+      try {
+        echo "Applying Policy start"
+        configFileProvider([configFile(fileId: "${policyFile}", variable: 'policyScript')]) {
+          withCredentials([usernamePassword(credentialsId: "${jenkinsGlobalCredDev}", passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+            def pyPath1 = 'python ' + policyScript + ' --u ' + USER + ' --p ' + PASS + ' --o ' + orgId + ' --e ' + envId + ' --at ' + apiName + ' --pp ' + policyConfigFile
+            def pyPath2 = pyPath + pyPath1
+            bat pyPath2
+            autoDiscoveryId = readFile(file: 'tempid.txt')
+            echo autoDiscoveryId
+          }
+        }
+      } catch (Exception e) {
+        echo "Auto Dsicovery ID not found or any other exception occurred"
+        if (apiName != '' && autodiscoveryId == '') {
+          throw new Exception("Autodiscovery Id is missing, please check if apiName is correct")
+        }
+      }
+    }
+    else echo "Apply policy stage is not executed, Either applyPolicyFlag is disabled or apiName is empty"
+  }
+
+  stage('Deploy') {
+    echo 'Deployment started'
+
+    withCredentials([
+      usernamePassword(credentialsId: jenkinsGlobalCredDev, passwordVariable: 'PASS', usernameVariable: 'USER'),
+      usernamePassword(credentialsId: anypointClientCredentials, passwordVariable: 'CLIENT_SECRET', usernameVariable: 'CLIENT_ID')
+    ]) {
+
+      //  def deployComm = mvnHome + '/bin' + '/mvn deploy -DmuleDeploy -DskipTests -Ddeployment=cloudhub ' + ' -Dusername=' + USER + ' -Dpassword=' + PASS + ' -DbusinessGroup='+businessGroup+ ' -Denvironment=' + environment + ' -DworkerType=' + workerType + ' -Dworkers=' + workers + ' -Dregion='+ region + ' -DappName='+ appName + ' -Dtimeout=' +timeout + ' -Denv=' + environment + ' -Denv='+ envProp + ' -DautoDiscoveryId='+ autoDiscoveryId+ ' -DpropertyV= test  '+ ' -Dproperty-api.client-id=' +PROPERTY_API_CLIENT_ID + ' -Dproperty-api.client-secret=' +PROPERTY_API_CLIENT_SECRET
+      def deployComm = mvnHome + '/bin' + '/mvn deploy -DmuleDeploy -DskipTests -Ddeployment=cloudhub ' + ' -Dusername=' + USER + ' -Dpassword=' + PASS + ' -DbusinessGroup=' + businessGroup + ' -Denvironment=' + environment + ' -DworkerType=' + workerType + ' -Dworkers=' + workers + ' -Dregion=' + region + ' -DappName=' + appName + ' -Dtimeout=' + timeout + ' -Dmule.env=' + envProp + ' -Dapi.id=' + autoDiscoveryId + ' -Danypoint.platform.client.id=' + CLIENT_ID + ' -Danypoint.platform.client.secret=' + CLIENT_SECRET
+
+      echo deployComm
+      bat deployComm
+    }
+  }
+
+  stage('Cleanup') {
+    deleteDir()
+  }
+}

@@ -110,9 +110,9 @@ export class ApiDetailPageComponent extends AbstractPageComponent {
      */
     protected pageTitle(): string {
         if (this.api.name) {
-            return "Apicurio Studio - API :: " + this.api.name;
+            return "Boilerplate Studio - API :: " + this.api.name;
         } else {
-            return "Apicurio Studio - API Details";
+            return "Boilerplate Studio - API Details";
         }
     }
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="implementation-suite.xml" />
+	<munit:test name="eligibility-implementationSub_Flow-test" doc:id="caf053d3-5dec-40ab-aaa4-5fd237aaf859" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Request to process/external api" doc:id="311a2c1d-98f4-4f88-aaee-55cf163cb197" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="3a6e7182-9631-4175-9bf1-cfb69fe4cfd8" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://eligibilityimplementationSubFlowtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_.dwl')]" />
+						<munit-tools:variable key="bussinessProcessName" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_1.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="originalPayload" value="#[output application/json --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_2.dwl')]" mediaType="application/json" encoding="UTF-8" />
+						<munit-tools:variable key="destinationApplication" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_3.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="messageid" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_4.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="context4" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_5.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="context3" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_6.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="flowName" value="#[readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_7.dwl')]" encoding="UTF-8" />
+						<munit-tools:variable key="context2" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_8.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="context1" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_9.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="transactionId" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_10.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="path" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_11.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="originatingApplication" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_12.dwl')]" mediaType="application/java" encoding="UTF-8" />
+						<munit-tools:variable key="Logger" value="#[output application/json --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_13.dwl')]" mediaType="application/json" encoding="UTF-8" />
+						<munit-tools:variable key="service" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\mock_variable_14.dwl')]" mediaType="application/java" encoding="UTF-8" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="10957fa5-4109-4123-a4f9-d75fee3d433a" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_.dwl')]" />
+					<munit:variable key="bussinessProcessName" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_1.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="originalPayload" value="#[output application/json --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_2.dwl')]" encoding="UTF-8" mediaType="application/json" />
+					<munit:variable key="destinationApplication" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_3.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="messageid" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_4.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="context4" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_5.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="context3" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_6.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="flowName" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_7.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="context2" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_8.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="context1" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_9.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="transactionId" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_10.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="path" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_11.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="originatingApplication" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_12.dwl')]" encoding="UTF-8" mediaType="application/java" />
+					<munit:variable key="Logger" value="#[output application/json --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_13.dwl')]" encoding="UTF-8" mediaType="application/json" />
+					<munit:variable key="service" value="#[output application/java --- readUrl('classpath://eligibilityimplementationSubFlowtest\set-event_variable_14.dwl')]" encoding="UTF-8" mediaType="application/java" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to eligibility-implementationSub_Flow" doc:id="8cf6bd3e-66ec-4b7c-b184-6314cea18deb" name="eligibility-implementationSub_Flow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="0fcf5a3b-8cee-4c87-8335-26096ed7a893" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import eligibilityimplementationSubFlowtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

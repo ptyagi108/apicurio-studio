@@ -1,0 +1,11 @@
+#%RAML 1.0 SecurityScheme
+type: Basic Authentication
+description: Basic Authetication Security for APIs.
+describedBy:
+  headers:
+    Authorization: 
+      description: Base64 encoded "username:password" credentials
+      type: string
+  responses:
+    401:
+      description: Unauthorized to call the API.

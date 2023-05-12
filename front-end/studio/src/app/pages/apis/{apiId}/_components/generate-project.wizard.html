@@ -18,7 +18,7 @@
                     <div class="wizard-pf-steps" *ngIf="!loading && !generating && !generated">
                         <ul class="wizard-pf-steps-indicator wizard-pf-steps-alt-indicator active">
 
-                            <li class="wizard-pf-step" [class.active]="currentPage === 'generationType'">
+                           <!-- <li class="wizard-pf-step" [class.active]="currentPage === 'generationType'">
                                 <a (click)="goTo('generationType')">
                                     <span class="wizard-pf-step-number">1</span>
                                     <span class="wizard-pf-step-title">Select Type</span>
@@ -30,8 +30,41 @@
                                     <span class="wizard-pf-step-number">2</span>
                                     <span class="wizard-pf-step-title">Configure Project</span>
                                 </a>
+                            </li>-->
+
+                            <li class="wizard-pf-step" [class.active]="currentPage === 'templateType'">
+                                <a (click)="goTo('templateType')">
+                                    <span class="wizard-pf-step-number">1</span>
+                                    <span class="wizard-pf-step-title">Configure Template</span>
+                                </a>
                             </li>
 
+                           <!-- <li class="wizard-pf-step" [class.active]="currentPage === 'domainType'">
+                                <a (click)="goTo('domainType')">
+                                    <span class="wizard-pf-step-number">4</span>
+                                    <span class="wizard-pf-step-title">Configure Domain</span>
+                                </a>
+                            </li>-->
+
+                           <!-- <li class="wizard-pf-step" [class.active]="currentPage === 'commonServices'">
+                                <a (click)="goTo('commonServices')">
+                                    <span class="wizard-pf-step-number">5</span>
+                                    <span class="wizard-pf-step-title">Common Services</span>
+                                </a>
+                            </li>-->
+                            <li class="wizard-pf-step" [class.active]="currentPage === 'deployment'">
+                                <a (click)="goTo('deployment')">
+                                    <span class="wizard-pf-step-number">2</span>
+                                    <span class="wizard-pf-step-title">Deployment</span>
+                                </a>
+                            </li>
+
+                           <!-- <li class="wizard-pf-step" [class.active]="currentPage === 'monitoring'">
+                                <a (click)="goTo('monitoring')">
+                                    <span class="wizard-pf-step-number">7</span>
+                                    <span class="wizard-pf-step-title">Monitoring</span>
+                                </a>
+                            </li>-->
                             <li class="wizard-pf-step" [class.active]="currentPage === 'location'">
                                 <a (click)="goTo('location')">
                                     <span class="wizard-pf-step-number">3</span>
@@ -56,7 +89,7 @@
                                 <p class="blank-slate-pf-secondary-action">Loading information needed by the Project Generation Wizard, please wait...</p>
                             </div>
                             <!-- Generation Type -->
-                            <div class="wizard-pf-contents" *ngIf="!loading && currentPage === 'generationType'">
+                            <!--<div class="wizard-pf-contents" *ngIf="!loading && currentPage === 'generationType'">
                                 <form class="form-horizontal">
                                     <div class="form-group">
                                         <div class="col-sm-10">
@@ -88,102 +121,134 @@
                                     </div>
                                 </form>
                             </div>
-                            <!-- Project Type -->
+                            &lt;!&ndash; Project Type &ndash;&gt;
                             <div class="wizard-pf-contents" *ngIf="currentPage === 'projectType'">
                                 <form class="form-horizontal" #projectTypeForm="ngForm" id="projectTypeForm">
                                     <div class="form-group required">
-                                        <label class="col-sm-2 control-label">Type</label>
+                                        <label class="col-sm-2 control-label">Project Type</label>
                                         <div class="col-sm-10">
                                             <drop-down id="projectType" [id]="'projectType'" [value]="model.projectType" [options]="projectTypeOptions()"
                                                        (onValueChange)="model.projectType = $event" [noSelectionLabel]="'Choose Project Type'"></drop-down>
                                         </div>
                                     </div>
-                                    <!-- Simple JAX-RS Config -->
-                                    <div class="form-items-jaxrs" *ngIf="model.projectType === 'jaxrs' || model.projectType === 'quarkus'">
-                                        <div class="form-group" *ngIf="model.generationType === 'bootstrap'">
-                                            <div class="col-sm-2">&nbsp;</div>
-                                            <div class="col-sm-10">
-                                                <input name="codeOnly" type="checkbox" id="jaxrs_codeOnly" [(ngModel)]="model.projectData.codeOnly">
-                                                <span>&nbsp;</span>
-                                                <label for="jaxrs_codeOnly">Skip maven project generation (generate code only)</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-2">&nbsp;</div>
-                                            <div class="col-sm-10">
-                                                <input name="codeOnly" type="checkbox" id="jaxrs_reactive" [(ngModel)]="model.projectData.reactive">
-                                                <span>&nbsp;</span>
-                                                <label for="jaxrs_reactive">Make the project Reactive (i.e. use CompletionStage&lt;T&gt; responses) </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-2">&nbsp;</div>
-                                            <div class="col-sm-10">
-                                                <input name="generateCliCi" type="checkbox" id="jaxrs_generate_cli_ci" [(ngModel)]="model.projectData.generateCliCi">
-                                                <span>&nbsp;</span>
-                                                <label for="jaxrs_generate_cli_ci">Add a GH Action to generate and publish CLI code for multiple languages</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" *ngIf="!model.projectData.codeOnly">
-                                            <label class="col-sm-2 control-label required" for="jaxrs_groupId">Group ID</label>
-                                            <div class="col-sm-10">
-                                                <input #jaxrsGroupIdInput="ngModel" name="groupId" type="text" id="jaxrs_groupId" class="form-control" placeholder="org.example.api"
-                                                       required pattern="[a-zA-Z][a-zA-Z0-9\.\-_]*" [(ngModel)]="model.projectData.groupId" #name="ngModel">
-                                                <form-error-message [inputModel]="jaxrsGroupIdInput" [type]="'required'">Group ID is required.</form-error-message>
-                                                <form-error-message [inputModel]="jaxrsGroupIdInput" [type]="'pattern'">Please enter a valid Maven groupId.</form-error-message>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" *ngIf="!model.projectData.codeOnly">
-                                            <label class="col-sm-2 control-label required" for="jaxrs_artifactId">Artifact ID</label>
-                                            <div class="col-sm-10">
-                                                <input #jaxrsArtifactIdInput="ngModel" name="artifactId" type="text" id="jaxrs_artifactId" class="form-control" placeholder="my-api"
-                                                       required pattern="[a-zA-Z][a-zA-Z0-9\.\-_]*" [(ngModel)]="model.projectData.artifactId" #name="ngModel">
-                                                <form-error-message [inputModel]="jaxrsArtifactIdInput" [type]="'required'">Artifact ID is required.</form-error-message>
-                                                <form-error-message [inputModel]="jaxrsArtifactIdInput" [type]="'pattern'">Please enter a valid Maven artifactId.</form-error-message>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label required" for="jaxrs_javaPackage">Java Package</label>
-                                            <div class="col-sm-10">
-                                                <input #jaxrsJavaPackageInput="ngModel" name="javaPackage" type="text" id="jaxrs_javaPackage" class="form-control" placeholder="org.example.api"
-                                                       required pattern="[a-zA-Z][a-zA-Z0-9\._]*" [(ngModel)]="model.projectData.javaPackage" #name="ngModel">
-                                                <form-error-message [inputModel]="jaxrsJavaPackageInput" [type]="'required'">Java package is required.</form-error-message>
-                                                <form-error-message [inputModel]="jaxrsJavaPackageInput" [type]="'pattern'">Please enter a valid Java package name.</form-error-message>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Thorntail JAX-RS Config -->
-                                    <div class="form-items-thorntail" *ngIf="model.projectType === 'thorntail'">
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label required" for="thorntail_groupId">Group ID</label>
-                                            <div class="col-sm-10">
-                                                <input #groupIdInput="ngModel" name="groupId" type="text" id="thorntail_groupId" class="form-control" placeholder="org.example.api"
-                                                       required pattern="[a-zA-Z][a-zA-Z0-9\.\-_]*" [(ngModel)]="model.projectData.groupId" #name="ngModel">
-                                                <form-error-message [inputModel]="groupIdInput" [type]="'required'">Group ID is required.</form-error-message>
-                                                <form-error-message [inputModel]="groupIdInput" [type]="'pattern'">Please enter a valid Maven groupId.</form-error-message>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label required" for="thorntail_artifactId">Artifact ID</label>
-                                            <div class="col-sm-10">
-                                                <input #artifactIdInput="ngModel" name="artifactId" type="text" id="thorntail_artifactId" class="form-control" placeholder="my-api"
-                                                       required pattern="[a-zA-Z][a-zA-Z0-9\.\-_]*" [(ngModel)]="model.projectData.artifactId" #name="ngModel">
-                                                <form-error-message [inputModel]="artifactIdInput" [type]="'required'">Artifact ID is required.</form-error-message>
-                                                <form-error-message [inputModel]="artifactIdInput" [type]="'pattern'">Please enter a valid Maven artifactId.</form-error-message>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label required" for="thorntail_javaPackage">Java Package</label>
-                                            <div class="col-sm-10">
-                                                <input #javaPackageInput="ngModel" name="javaPackage" type="text" id="thorntail_javaPackage" class="form-control" placeholder="org.example.api"
-                                                       required pattern="[a-zA-Z][a-zA-Z0-9\._]*" [(ngModel)]="model.projectData.javaPackage" #name="ngModel">
-                                                <form-error-message [inputModel]="javaPackageInput" [type]="'required'">Java package is required.</form-error-message>
-                                                <form-error-message [inputModel]="javaPackageInput" [type]="'pattern'">Please enter a valid Java package name.</form-error-message>
-                                            </div>
+                                </form>
+                            </div>-->
+
+                            <!-- Template Type -->
+                            <div class="wizard-pf-contents" *ngIf="currentPage === 'templateType'">
+                                <form class="form-horizontal" #templateTypeForm="ngForm" id="templateTypeForm">
+                                    <div class="form-group required">
+                                        <label class="col-sm-2 control-label">Template Type</label>
+                                        <div class="col-sm-10">
+                                            <drop-down id="templateType" [id]="'templateType'" [value]="model.templateType" [options]="templateTypeOptions()"
+                                                       (onValueChange)="model.templateType = $event" [noSelectionLabel]="'Choose Template Type'"></drop-down>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
+                            <!-- Domain Type -->
+                            <!--<div class="wizard-pf-contents" *ngIf="currentPage === 'domainType'">
+                                <form class="form-horizontal" #projectTypeForm="ngForm" id="domainTypeForm">
+                                    <div class="form-group required">
+                                        <label class="col-sm-2 control-label">Domain Type</label>
+                                        <div class="col-sm-10">
+                                            <drop-down id="domainType" [id]="'domainType'" [value]="model.projectType" [options]="domainTypeOptions()"
+                                                       (onValueChange)="model.domainType = $event" [noSelectionLabel]="'Choose Domain Type'"></drop-down>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>-->
+
+                          <!--  <div class="wizard-pf-contents" *ngIf="currentPage === 'commonServices'">
+                                <form class="form-horizontal" #projectTypeForm="ngForm" id="commonServicesForm">
+                                    <p class="moreInfo" style="padding-left: 15px">
+                                        <B>Select Common Services</B>
+                                    </p>
+                                    &lt;!&ndash; Simple JAX-RS Config &ndash;&gt;
+                                    <div class="form-items-jaxrs" >
+
+                                        <div class="form-group">
+                                            <div class="col-sm-2">&nbsp;</div>
+                                            <div class="col-sm-10">
+                                                <input name="codeOnly" type="checkbox" id="logging" [(ngModel)]="model.projectData.logging">
+                                                <span>&nbsp;</span>
+                                                <label for="logging">Logging</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-2">&nbsp;</div>
+                                            <div class="col-sm-10">
+                                                <input name="codeOnly" type="checkbox" id="error" [(ngModel)]="model.projectData.error">
+                                                <span>&nbsp;</span>
+                                                <label for="error">Error Handling</label>
+                                            </div>
+                                        </div>
+
+&lt;!&ndash;                                        <div class="form-group">
+                                            <div class="col-sm-2">&nbsp;</div>
+                                            <div class="col-sm-10">
+                                                <input name="codeOnly" type="checkbox" id="audit" [(ngModel)]="model.projectData.audit">
+                                                <span>&nbsp;</span>
+                                                <label for="audit">Auditing</label>
+                                            </div>
+                                        </div>&ndash;&gt;
+
+                                    </div>
+
+                                </form>
+                            </div>
+-->
+                            <!-- Deployment Type -->
+                            <div class="wizard-pf-contents" *ngIf="!loading && currentPage === 'deployment'">
+                                <form class="form-horizontal">
+                                    <p class="moreInfo" style="padding-left: 15px">
+                                        <B>Select CI/CD Pipelin</B>
+                                    </p>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <input type="radio" name="deployment-type" id="deployment-azure" value="azure"
+                                                   [(ngModel)]="model.monitoring" >
+                                            <label for="deployment-azure" >Azure</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <input type="radio" name="deployment-type" id="deployment-jenkins" value="jenkins"
+                                                   (click)="resetModel()"
+                                                   [(ngModel)]="model.monitoring">
+                                            <label for="deployment-jenkins">Jenkins</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Monitoring -->
+                           <!-- <div class="wizard-pf-contents" *ngIf="!loading && currentPage === 'monitoring'">
+                                <form class="form-horizontal">
+                                    <p class="moreInfo" style="padding-left: 15px">
+                                        <B>Select Analytics Tool</B>
+                                    </p>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <input type="radio" name="monitoring-type" id="monitertype-splunk" value="splunk"
+                                                   [(ngModel)]="model.monitoring" >
+                                            <label for="monitertype-splunk" >Splunk</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <input type="radio" name="monitoring-type" id="monitertype-mule" value="mule"
+                                                   (click)="resetModel()"
+                                                   [(ngModel)]="model.monitoring">
+                                            <label for="monitertype-mule">MuleSoft Monitoring</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>-->
                             <!-- Location: Download/Publish -->
                             <div class="wizard-pf-contents" *ngIf="currentPage === 'location'">
                                 <form class="form-horizontal">

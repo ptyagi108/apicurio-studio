@@ -1,0 +1,10 @@
+%dw 2.0
+
+type auto_de0c47f4_63e3_4a68_ad2c_fe90a32d9f9e_Output_Payload = {
+  "271-json"?: { _?: Any } {"description": "gives 271 response in json formatted structure"}, 
+  "277"?: String, 
+  "277-json"?: { _?: Any } {"description": "gives 277 response in json formatted structure"}, 
+  "271"?: String, 
+  _?: Any
+}
+

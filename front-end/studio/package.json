@@ -10,8 +10,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 8888 --aot",
-    "debug": "ng serve --port 8888 --sourcemap -dev -v",
+    "start": "ng serve --port 8093 --aot",
+    "debug": "ng serve --port 8093 --sourcemap -dev -v",
     "build": "ng build --prod",
     "build-editor": "ng build editor --prod && cp-cli README-npm.md dist-editor/README.md"
   },

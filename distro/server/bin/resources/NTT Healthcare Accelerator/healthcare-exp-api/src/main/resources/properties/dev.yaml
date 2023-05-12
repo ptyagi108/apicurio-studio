@@ -1,0 +1,13 @@
+#properties for the DEV1 environment
+  
+api:
+  id: "123456"    
+  
+#Http Listener Configuration
+http:
+  port: "8081" 
+  request:
+    protocol: "HTTP"
+    host: "healthcare-prc-api"
+    path: "/api/EDIHealthcarerequest" 
+  

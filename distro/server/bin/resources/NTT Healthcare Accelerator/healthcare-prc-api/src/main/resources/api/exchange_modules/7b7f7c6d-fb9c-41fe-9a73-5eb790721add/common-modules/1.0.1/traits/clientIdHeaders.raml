@@ -1,0 +1,9 @@
+#%RAML 1.0 Trait
+description: This trait restricts client to the API resouurces and allows request only from regstered client application.
+headers:
+    client-id:
+      type: string
+      description: Client Id retrieved from API Manager
+    client-secret:
+      type: string
+      description: Client Secret retrieved from API Manager

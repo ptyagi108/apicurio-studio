@@ -47,7 +47,7 @@ export class ProfilePageComponent extends AbstractPageComponent {
      * 
      */
     protected pageTitle(): string {
-        return "Apicurio Studio - Settings - Profile";
+        return "Boilerplate Studio - Settings - Profile";
     }
 
     public loadAsyncPageData(): void {

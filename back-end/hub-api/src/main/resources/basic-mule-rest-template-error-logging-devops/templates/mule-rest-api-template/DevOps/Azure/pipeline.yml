@@ -1,0 +1,61 @@
+variables:
+- name: BuildParameters.mavenPOMFile
+  value: pom.xml
+- name: BuildParameters.ArtifactType
+  value: Container
+- name:  MAVEN_CACHE_FOLDER
+  value: $(Pipeline.Workspace)
+trigger:
+  branches:
+    include:
+    - refs/heads/Prod
+    - refs/heads/Dev
+    - refs/heads/UAT
+    - refs/heads/master
+name: $(date:yyyyMMdd)$(rev:.r)
+
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/Dev
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+    
+  - task: DownloadSecureFile@1
+    name: mvnSettings
+    displayName: 'Download secure file'
+    inputs:
+      secureFile: settings.xml
+
+  - task: Maven@3
+    displayName: Maven build
+    inputs:
+      mavenPOMFile: $(BuildParameters.mavenPOMFile)
+      goals: 'clean package'
+      options: -s $(mvnSettings.secureFilePath)
+      #Your build pipeline references an undefined variable named ‘Parameters.mavenPOMFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+    inputs:
+      SourceFolder: $(system.defaultworkingdirectory)
+      Contents: >-
+        target/*.jar
+
+        pom.xml
+
+      TargetFolder: $(build.artifactstagingdirectory)
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactType: $(BuildParameters.ArtifactType)
+

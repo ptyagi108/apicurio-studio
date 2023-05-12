@@ -16,11 +16,7 @@
 
 package io.apicurio.hub.api.rest.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -44,6 +40,10 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.StreamingOutput;
 
+import io.apicurio.hub.api.fmpp.MuleAppGenerator;
+import io.apicurio.hub.api.fmpp.setting.SettingException;
+import io.apicurio.hub.api.fmpp.setting.Settings;
+import io.apicurio.hub.api.fmpp.util.MiscUtil;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -130,6 +130,7 @@ import io.apicurio.hub.core.storage.IStorage;
 import io.apicurio.hub.core.storage.StorageException;
 import io.apicurio.hub.core.util.FormatUtils;
 import io.apicurio.studio.shared.beans.User;
+
 
 /**
  * @author eric.wittmann@gmail.com
@@ -1272,12 +1273,32 @@ public class DesignsResource implements IDesignsResource {
                 generator.setUpdateOnly(updateOnly);
 
                 return asResponse(settings, generator);
+            }else if (project.getType() == CodegenProjectType.muleapp) {
+                File    cfgFile = new File("config.fmpp"); // load the cfg. of the the current dir.
+                // Now comes the meat...
+                try {
+                    //  ServletContext servletContext = getServletContext();
+                    //   String basePath = ServletContext.getRealPath("/WEB-INF/classes/resources/config");
+                    Settings ss = new Settings(new File("resources"),project);
+                    ss.load(cfgFile);
+                    final MuleAppGenerator generator = new MuleAppGenerator();
+                    generator.setSettings(ss);
+                    System.out.println("Done.");
+                    //  InputStream inputStream = asResponse(ss, generator).readEntity(InputStream.class);
+                    return asResponse(ss, generator);
+
+
+                } catch (SettingException | IOException e) {
+                    System.err.println(MiscUtil.causeMessages(e));
+                    System.exit(-2);
+                }
             } else {
                 throw new ServerError("Unsupported project type: " + project.getType());
             }
         } catch (StorageException e) {
             throw new ServerError(e);
         }
+        return null;
     }
 
     /**
@@ -1287,11 +1308,11 @@ public class DesignsResource implements IDesignsResource {
      */
     private Response asResponse(JaxRsProjectSettings settings, final OpenApi2JaxRs generator) {
         StreamingOutput stream = new StreamingOutput() {
-            @Override
-            public void write(OutputStream output) throws IOException, WebApplicationException {
-                generator.generate(output);
-            }
-        };
+                @Override
+                public void write(OutputStream output) throws IOException, WebApplicationException {
+                    generator.generate(output);
+                }
+            };
 
         String fname = settings.artifactId + ".zip";
         ResponseBuilder builder = Response.ok().entity(stream)
@@ -1300,6 +1321,29 @@ public class DesignsResource implements IDesignsResource {
 
         return builder.build();
     }
+
+
+    /**
+     * Generates the project and returns the result as a streaming response.
+     * @param settings
+     * @param generator
+     */
+    private Response asResponse(Settings settings, final MuleAppGenerator generator) {
+        StreamingOutput stream = new StreamingOutput() {
+            @Override
+            public void write(OutputStream output) throws IOException, WebApplicationException {
+                generator.generate(output);
+            }
+        };
+
+        String fname = "out.zip";
+        ResponseBuilder builder = Response.ok().entity(stream)
+                .header("Content-Disposition", "attachment; filename=\"" + fname + "\"")
+                .header("Content-Type", "application/zip");
+
+        return builder.build();
+    }
+
 
     /**
      * @see io.apicurio.hub.api.rest.IDesignsResource#updateCodegenProject(java.lang.String, java.lang.String, io.apicurio.hub.api.beans.UpdateCodgenProject)

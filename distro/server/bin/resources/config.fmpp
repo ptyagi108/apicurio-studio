@@ -1,0 +1,10 @@
+
+sourceRoot: basic-mule-rest-template-error-logging-devops/templates
+outputRoot:out
+dataRoot:basic-mule-rest-template-error-logging-devops/data
+data: {
+    json(mule-app-properties.json)
+}
+modes: [
+    ignore(**/*.p12)
+]

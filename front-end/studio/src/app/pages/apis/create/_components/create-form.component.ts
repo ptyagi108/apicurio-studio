@@ -68,7 +68,8 @@ export class CreateApiFormComponent {
     public ngOnInit(): void {
         this.toptions = [
             new Value("Open API 2.0 (Swagger)", "OpenAPI20"),
-            new Value("Open API 3.0.2", "OpenAPI30")
+            new Value("Open API 3.0.2", "OpenAPI30"),
+            new Value("Mule App", "MuleApp")
         ];
         if (this.config.isAsyncAPIEnabled()) {
             this.toptions.push(new Value("Async API 2.0.0", "AsyncAPI20"));

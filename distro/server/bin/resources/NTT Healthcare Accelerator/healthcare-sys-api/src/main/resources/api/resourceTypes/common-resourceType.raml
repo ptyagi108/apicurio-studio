@@ -1,0 +1,30 @@
+head:
+  #%RAML 1.0 ResourceType
+get?:
+  description: <<getDescription>>
+  displayName: <<getDisplayName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<getResponse200DataType>>
+          example: <<getResponse200Example>>
+
+post?:
+  description: <<postDescription>>
+  displayName: <<postDisplayName>>
+  body:
+    application/json:
+      type: <<postRequest200DataType>>
+      example: <<postRequest200Example>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<postResponse200DataType>>
+          example: <<postResponse200Example>>
+    400:
+      body:
+        application/json:
+          type: <<postResponse200DataType>>
+          example: <<postResponse200Example>>

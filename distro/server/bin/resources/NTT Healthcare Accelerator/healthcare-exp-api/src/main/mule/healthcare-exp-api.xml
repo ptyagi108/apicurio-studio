@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+    <apikit:config name="healthcare-exp-api-config" api="healthcare-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <flow name="healthcare-exp-api-main">
+        <http:listener config-ref="HttpsListenerConfig" path="/api/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <flow-ref doc:name="logger-payload-as-string-flow" doc:id="576885f6-4df1-4a6f-8c7d-e3919ccfcc91" name="logger-payload-as-string-flow" />
+		<ee:transform doc:name="set properties" doc:id="74e76160-a4d7-494d-859f-902a2ab0f691">
+			<ee:message />
+			<ee:variables>
+				<ee:set-variable variableName="originatingApplication"><![CDATA[%dw 2.0
+output application/java
+---
+"template source"]]></ee:set-variable>
+				<ee:set-variable variableName="path"><![CDATA[%dw 2.0
+output application/java
+---
+attributes.requestPath]]></ee:set-variable>
+				<ee:set-variable variableName="service"><![CDATA[%dw 2.0
+output application/java
+---
+"template service"]]></ee:set-variable>
+				<ee:set-variable variableName="destinationApplication"><![CDATA[%dw 2.0
+output application/java
+---
+"template destination"]]></ee:set-variable>
+				<ee:set-variable variableName="bussinessProcessName"><![CDATA[%dw 2.0
+output application/java
+---
+"template business process"]]></ee:set-variable>
+				<ee:set-variable variableName="flowName"><![CDATA[%dw 2.0
+output application/java
+---
+"api-template-main"]]></ee:set-variable>
+				<ee:set-variable variableName="originalPayload"><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<flow-ref doc:name="generate-messageId-and-transactionId-subflow" doc:id="822fa8c3-b478-4a35-970b-573b489597db" name="generate-messageId-and-transactionId-subflow" />
+        <apikit:router config-ref="healthcare-exp-api-config" />
+        <error-handler ref="global-sync-exception-strategy"/>
+           
+    </flow>
+    <flow name="healthcare-exp-api-console">
+        <http:listener config-ref="HttpsListenerConfig" path="/console/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:console config-ref="healthcare-exp-api-config" />
+        <error-handler>
+            <on-error-propagate type="APIKIT:NOT_FOUND">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Resource not found"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="get:\health:healthcare-exp-api-config">
+        <logger level="INFO" message="get:\health:healthcare-exp-api-config" />
+    </flow>
+    <flow name="post:\EDIHealthcarerequest:application\json:healthcare-exp-api-config">
+         <ee:transform doc:name="set Context Properties" doc:id="87ce3fc0-46ea-48b1-887e-3ac32e3ef4d5">
+            <ee:message />
+            <ee:variables>
+                <ee:set-variable variableName="context1"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="context2"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="context3"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="context4"><![CDATA[%dw 2.0
+output application/java
+---
+""]]></ee:set-variable>
+                <ee:set-variable variableName="flowName"><![CDATA[%dw 2.0
+output application/java
+---
+"post edi healthcare request"]]></ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+        <flow-ref doc:name="logger api start flow" doc:id="ec22e003-9332-4900-812d-f4ab457bb09b" name="logger-api-start-flow" />
+		<choice doc:name="Choice" doc:id="8b0ef9a5-33ad-4b1d-a37c-4dc8ef41280d" >
+			<when expression='(attributes.headers."X-12-Type" == "270" and !(isEmpty(payload."270"))) or (attributes.headers."X-12-Type" == "276" and !(isEmpty(payload."276")))'>
+				<flow-ref doc:name=" flow ref to eligibility-implementationSub_Flow" doc:id="cf631483-b7a9-4248-b533-fea1b45e3695" name="eligibility-implementationSub_Flow" />
+				<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  "271": "ISA*00*          *00*          *ZZ*1234567        *ZZ*11111          *170508*1141*>*00501*000000101*1*P*:~\nGS*HC*XXXXXXX*XXXXX*20170617*1741*101*X*005010X279A1~\nST*271*4321*005010X279A1~\nBHT*0022*11*10001234*20060501*1319~\nHL*1**20*1~\nNM1*PR*2*ABC COMPANY*****PI*842610001~\nHL*2*1*21*1~\nNM1*1P*2*BONE AND JOINT CLINIC*****SV*2000035~\nHL*3*2*22*0~\nTRN*2*93175-012547*9877281234~\nNM1*IL*1*SMITH*JOHN****MI*123456789~\nN3*15197 BROADWAY AVENUE*APT 215~\nN4*KANSAS CITY*MO*64108~\nDMG*D8*19630519*M~\nDTP*346*D8*20060101~\nEB*1**30**GOLD 123 PLAN~\nEB*L~\nEB*1**1>33>35>47>86>88>98>AL>MH>UC~\nEB*B**1>33>35>47>86>88>98>AL>MH>UC*HM*GOLD 123 PLAN*27*10*****Y~\nEB*B**1>33>35>47>86>88>98>AL>MH>UC*HM*GOLD 123 PLAN*27*30*****N~\nLS*2120~\nNM1*P3*1*JONES*MARCUS****SV*0202034~\nLE*2120~\nSE*22*4321~\nGE*1*101~\nIEA*1*000000101~",
+  "271-json": {}
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+			</when>
+		</choice>
+        <flow-ref doc:name="logger api end flow" doc:id="c2901021-7c97-4c46-9d3b-cefe12668657" name="logger-api-end-flow" />
+    </flow>
+</mule>

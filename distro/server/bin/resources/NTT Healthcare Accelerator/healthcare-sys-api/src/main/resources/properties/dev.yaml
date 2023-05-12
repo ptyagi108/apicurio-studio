@@ -1,0 +1,15 @@
+#properties for the DEV1 environment
+  
+api:
+  id: ""    
+  
+#Http Listener Configuration
+http:
+  port: "8081" 
+  request:
+    protocol: "HTTPS"
+    host: ""
+    port: "443"
+    path: 
+      eligibility: ""
+  

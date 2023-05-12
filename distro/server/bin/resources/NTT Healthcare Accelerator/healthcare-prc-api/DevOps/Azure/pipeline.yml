@@ -1,0 +1,83 @@
+variables:
+- name: BuildParameters.mavenPOMFile
+  value: pom.xml
+- name: BuildParameters.ArtifactType
+  value: Container
+- name:  MAVEN_CACHE_FOLDER
+  value: $(Pipeline.Workspace)
+trigger:
+  branches:
+    include:
+    - refs/heads/Prod
+    - refs/heads/dev
+    - refs/heads/QA
+    - refs/heads/main
+name: $(date:yyyyMMdd)$(rev:.r)
+
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/Dev
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+    
+  - task: DownloadSecureFile@1
+    name: mvnSettings
+    displayName: 'Download secure file'
+    inputs:
+      secureFile: settings.xml
+      
+  - task: SonarQubePrepare@5
+    displayName: Code Validation and Static Analysis
+    inputs:
+      SonarQube: AzurePOCDevOps
+      scannerMode: Other
+      configMode: manual
+      cliProjectKey: $(BuildParameters.cliProjectKey)
+      extraProperties: >-
+
+        sonar.host.url=
+
+  - task: Maven@3
+    displayName: Test
+    inputs:
+      mavenPOMFile: $(BuildParameters.mavenPOMFile)
+      goals: 'clean test'
+      options: -s $(mvnSettings.secureFilePath)
+
+  - task: Maven@3
+    displayName: Package
+    inputs:
+      mavenPOMFile: $(BuildParameters.mavenPOMFile)
+      goals: 'clean package -DskipTests'
+      options: -s $(mvnSettings.secureFilePath)
+      codeCoverageTool: JaCoCo
+      sqAnalysisEnabled: false
+      sqMavenPluginVersionChoice: pom
+    
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+    inputs:
+      SourceFolder: $(system.defaultworkingdirectory)
+      Contents: >-
+        target/*.jar
+        
+        pom.xml
+        
+        DevOps/Azure/*.json
+      TargetFolder: $(build.artifactstagingdirectory)
+      
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactType: $(BuildParameters.ArtifactType)
+

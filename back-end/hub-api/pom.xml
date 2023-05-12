@@ -41,6 +41,36 @@
 
         <!-- Third Party Libraries -->
         <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>bsh</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>imageinfo</artifactId>
+            <version>1.1</version>
+        </dependency>
+      <!--  <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>jax-rs</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>resolver</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nttdata.fmpp.boilerplate</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.mylyn.github</groupId>
             <artifactId>org.eclipse.egit.github.core</artifactId>
         </dependency>

@@ -1,0 +1,483 @@
+2023-01-24 18:53:02,169 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.2.Final
+2023-01-24 18:53:03,002 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2023-01-24 18:53:03,010 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2023-01-24 18:53:03,185 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 26.1.1.Final (WildFly Core 18.1.1.Final) starting
+2023-01-24 18:53:03,185 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.separator = \
+	intellij.debug.agent = true
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\jboss-modules.jar
+	java.class.version = 55.0
+	java.home = C:\Software\Java\jdk-11
+	java.io.tmpdir = C:\Users\TYAGI_~1\AppData\Local\Temp\
+	java.library.path = C:\Software\Java\jdk-11\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\Calibre2\;C:\Program Files (x86)\HP\Common\HPDestPlgIn\;C:\Program Files (x86)\HP\IdrsOCR_15.5.1219.0\;C:\Program Files\HP\IdrsOCR_15.5.1219.0\;C:\Program Files (x86)\dotnet\;%JAVA_HOME%\bin;C:\Software\Java\jdk-11\bin;C:\Program Files\Java\jdk1.8.0_331\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\chocolatey\bin;C:\Users\tyagi_ihz\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\tyagi_ihz\AppData\Local\Microsoft\WindowsApps;C:\Users\tyagi_ihz\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\tyagi_ihz\AppData\Local\Programs\Python\Python39;C:\Software\ChromeDriver;C:\Users\tyagi_ihz\AppData\Local\GitHubDesktop\bin;C:\Software\apache-maven-3.6.3\bin;C:\Software\apache-maven-3.5.0\bin;C:\Software\geckodriver;C:\Program Files (x86)\HP\Common\HPDestPlgIn\;C:\programs\cygwin64\bin;C:\programs\cygwin64\usr\bin;C:\programs\cygwin64\bin;C:\programs\cygwin64\sbin;C:\programs\cygwin64\usr\sbin;C:\programs\cygwin64\usr\local\bin;C:\programs\cygwin64\usr\local\sbin;C:\Software\Java\jdk-11\bin;C:\Software\Java\jdk-11\bin;C:\Program Files\Java\jdk1.8.0_331\bin;C:\Users\tyagi_ihz\AppData\Roaming\npm;C:\Users\tyagi_ihz\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\WebStorm 2019.2.3\bin;;;.
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11+28
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.java.com/bugreport/
+	java.vendor.version = 18.9
+	java.version = 11
+	java.version.date = 2018-09-25
+	java.vm.compressedOopsMode = Zero based
+	java.vm.info = mixed mode
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 11+28
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT
+	jboss.host.name = krishna-laptop
+	jboss.modules.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\modules
+	jboss.modules.system.pkgs = com.intellij.rt
+	jboss.node.name = krishna-laptop
+	jboss.qualified.host.name = krishna-laptop
+	jboss.server.base.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone
+	jboss.server.config.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\configuration
+	jboss.server.data.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\data
+	jboss.server.deploy.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\data\content
+	jboss.server.log.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\log
+	jboss.server.name = krishna-laptop
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\configuration/logging.properties
+	module.path = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\modules
+	org.jboss.boot.log.file = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.library.path = C:\Software\Java\jdk-11\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\jboss-modules.jar -mp E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\modules org.jboss.as.standalone -Djboss.home.dir=E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = IN
+	user.dir = E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\bin
+	user.home = C:\Users\tyagi_ihz
+	user.language = en
+	user.name = tyagi_ihz
+	user.script = 
+	user.timezone = Asia/Calcutta
+	user.variant = 
+2023-01-24 18:53:03,185 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:60863,suspend=y,server=n -javaagent:C:\Users\tyagi_ihz\.IntelliJIdea2019.3\system\captureAgent\debugger-agent.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\log\server.log -Dlogging.configuration=file:E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\configuration/logging.properties 
+2023-01-24 18:53:04,475 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 1.19.0.Final
+2023-01-24 18:53:05,943 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 13) WFLYDR0001: Content added at location E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\data\content\5f\c10ff8fa7104bbf5774ee8b0062b27123d547f\content
+2023-01-24 18:53:05,983 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2023-01-24 18:53:06,007 INFO  [org.xnio] (MSC service thread 1-5) XNIO version 3.8.7.Final
+2023-01-24 18:53:06,018 INFO  [org.xnio.nio] (MSC service thread 1-5) XNIO NIO Implementation Version 3.8.7.Final
+2023-01-24 18:53:06,058 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 66) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2023-01-24 18:53:06,066 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 55) WFLYCLINF0001: Activating Infinispan subsystem.
+2023-01-24 18:53:06,074 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 76) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2023-01-24 18:53:06,074 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 56) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2023-01-24 18:53:06,074 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 53) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2023-01-24 18:53:06,083 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 57) WFLYRS0016: RESTEasy version 4.7.6.Final
+2023-01-24 18:53:06,083 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 69) WFLYNAM0001: Activating Naming Subsystem
+2023-01-24 18:53:06,083 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 65) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2023-01-24 18:53:06,091 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 68) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2023-01-24 18:53:06,091 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 54) WFLYHEALTH0001: Activating Base Health Subsystem
+2023-01-24 18:53:06,099 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 67) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2023-01-24 18:53:06,099 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 62) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2023-01-24 18:53:06,128 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 78) WFLYWS0002: Activating WebServices Extension
+2023-01-24 18:53:06,136 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.3.Final)
+2023-01-24 18:53:06,200 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 45) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2023-01-24 18:53:06,281 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.2.17.Final starting
+2023-01-24 18:53:06,290 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = h2
+2023-01-24 18:53:06,375 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY00023: KeyStore file 'E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\configuration\application.keystore' does not exist. Used blank.
+2023-01-24 18:53:06,404 INFO  [org.jboss.remoting] (MSC service thread 1-5) JBoss Remoting version 5.0.24.Final
+2023-01-24 18:53:06,412 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Starting Naming Service
+2023-01-24 18:53:06,436 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2023-01-24 18:53:06,436 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2023-01-24 18:53:06,694 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0014: Creating file handler for path 'E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2023-01-24 18:53:06,749 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2023-01-24 18:53:06,749 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2023-01-24 18:53:06,789 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0012: Started server default-server.
+2023-01-24 18:53:06,789 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) Queuing requests.
+2023-01-24 18:53:06,807 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2023-01-24 18:53:07,089 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8092
+2023-01-24 18:53:07,089 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8445
+2023-01-24 18:53:07,157 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2023-01-24 18:53:07,165 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-5) WFLYDS0013: Started FileSystemDeploymentService for directory E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\deployments
+2023-01-24 18:53:07,173 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "apicurio-studio.war" (runtime-name: "apicurio-studio.war")
+2023-01-24 18:53:07,198 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-01-24 18:53:07,298 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0001: Bound data source [java:jboss/datasources/ApicurioDS]
+2023-01-24 18:53:07,298 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2023-01-24 18:53:07,339 INFO  [org.jboss.ws.common.management] (MSC service thread 1-3) JBWS022052: Starting JBossWS 5.4.4.Final (Apache CXF 3.4.5) 
+2023-01-24 18:53:36,044 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment apicurio-studio.war
+2023-01-24 18:53:36,229 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-6) HV000001: Hibernate Validator 6.0.23.Final
+2023-01-24 18:53:36,821 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-6) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-01-24 18:53:36,829 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-6) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=apicurio-studio.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@5afe10af, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=KRISHNA-LAPTOP, jaeger.version=Java-1.6.0, ip=192.168.1.25}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-01-24 18:53:37,029 INFO  [org.jboss.weld.Version] (MSC service thread 1-8) WELD-000900: 3.1.9 (Final)
+2023-01-24 18:53:37,649 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 80) ISPN000128: Infinispan version: Infinispan 'Triskaidekaphobia' 13.0.10.Final
+2023-01-24 18:53:37,843 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 80) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2023-01-24 18:53:38,772 INFO  [org.infinispan.CONFIG] (MSC service thread 1-8) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2023-01-24 18:53:38,772 INFO  [org.infinispan.CONFIG] (MSC service thread 1-8) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2023-01-24 18:53:38,789 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 80) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2023-01-24 18:53:38,789 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 80) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+2023-01-24 18:53:39,596 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 95) WFLYUT0021: Registered web context: '/studio' for server 'default-server'
+2023-01-24 18:53:39,711 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 46) WFLYSRV0010: Deployed "apicurio-studio.war" (runtime-name : "apicurio-studio.war")
+2023-01-24 18:53:39,807 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2023-01-24 18:53:39,807 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 26.1.1.Final (WildFly Core 18.1.1.Final) started in 38254ms - Started 497 of 697 services (345 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml
+2023-01-24 18:53:39,815 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2023-01-24 18:53:39,815 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2023-01-24 18:53:40,348 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 13) WFLYUT0022: Unregistered web context: '/studio' from server 'default-server'
+2023-01-24 18:53:40,587 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment apicurio-studio.war (runtime-name: apicurio-studio.war) in 245ms
+2023-01-24 18:53:40,662 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "apicurio-studio.war" (runtime-name: "apicurio-studio.war")
+2023-01-24 18:53:40,720 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location E:\Projects\GitHub\apicurio-studio\distro\quickstart\target\deploy\apicurio-studio-0.2.60-SNAPSHOT\standalone\data\content\5f\c10ff8fa7104bbf5774ee8b0062b27123d547f\content
+2023-01-24 18:53:40,809 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "apicurio-studio.war" (runtime-name: "apicurio-studio.war")
+2023-01-24 18:54:06,690 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0003: Processing weld deployment apicurio-studio.war
+2023-01-24 18:54:06,799 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-5) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-01-24 18:54:06,799 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-5) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=apicurio-studio.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@17ff438b, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=KRISHNA-LAPTOP, jaeger.version=Java-1.6.0, ip=192.168.1.25}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-01-24 18:54:07,215 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 104) WFLYUT0021: Registered web context: '/studio' for server 'default-server'
+2023-01-24 18:54:07,240 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "apicurio-studio.war" (runtime-name : "apicurio-studio.war")
+2023-01-24 18:54:07,377 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "apicurio-studio-ws.war" (runtime-name: "apicurio-studio-ws.war")
+2023-01-24 18:55:35,823 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.apicurio-studio-ws.war" is using a private module ("com.fasterxml.jackson.dataformat.jackson-dataformat-yaml") which may be changed or removed in future versions without notice.
+2023-01-24 18:55:35,839 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment apicurio-studio-ws.war
+2023-01-24 18:55:36,209 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-6) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-01-24 18:55:36,209 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-6) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=apicurio-studio-ws.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@46e16b3b, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=KRISHNA-LAPTOP, jaeger.version=Java-1.6.0, ip=192.168.1.25}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-01-24 18:55:36,252 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-1) WFLYRS0018: Explicit usage of Jackson annotation in a Jakarta RESTful Web Services deployment; the system will disable Jakarta JSON Binding processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore Jakarta JSON Binding.
+2023-01-24 18:55:36,558 INFO  [org.jboss.weld.Bootstrap] (Weld Thread Pool -- 9) WELD-000119: Not generating any bean definitions from io.apicurio.hub.core.editing.distributed.JMSSessionFactory because of underlying class loading error: Type javax.jms.Destination from [Module "deployment.apicurio-studio-ws.war" from Service Module Loader] not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2023-01-24 18:55:37,707 INFO  [io.undertow.websockets.jsr] (ServerService Thread Pool -- 109) UT026003: Adding annotated server endpoint class io.apicurio.hub.editing.EditApiDesignEndpoint for path /designs/{designId}
+2023-01-24 18:55:37,813 INFO  [io.apicurio.hub.editing.StartupServlet] (ServerService Thread Pool -- 109) 
+------------------------------------------------
+Starting up Apicurio Editing API
+	Version:  0.2.60-SNAPSHOT
+	Built On: Mon Jan 09 16:02:05 IST 2023
+	Build:    ${git.commit.id.describe}
+------------------------------------------------
+2023-01-24 18:55:37,821 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 109) WFLYUT0021: Registered web context: '/api-editing' for server 'default-server'
+2023-01-24 18:55:37,876 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "apicurio-studio-ws.war" (runtime-name : "apicurio-studio-ws.war")
+2023-01-24 18:55:38,083 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "apicurio-studio-api.war" (runtime-name: "apicurio-studio-api.war")
+2023-01-24 18:57:47,475 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-2) WFLYSRV0018: Deployment "deployment.apicurio-studio-api.war" is using a private module ("com.fasterxml.jackson.dataformat.jackson-dataformat-yaml") which may be changed or removed in future versions without notice.
+2023-01-24 18:57:47,665 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment apicurio-studio-api.war
+2023-01-24 18:57:47,989 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-8) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-01-24 18:57:47,989 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-8) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=apicurio-studio-api.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@6e281137, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=KRISHNA-LAPTOP, jaeger.version=Java-1.6.0, ip=192.168.1.25}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-01-24 18:57:48,156 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-7) WFLYRS0018: Explicit usage of Jackson annotation in a Jakarta RESTful Web Services deployment; the system will disable Jakarta JSON Binding processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore Jakarta JSON Binding.
+2023-01-24 18:57:48,706 INFO  [org.jboss.weld.Bootstrap] (Weld Thread Pool -- 8) WELD-000119: Not generating any bean definitions from io.apicurio.hub.core.editing.distributed.JMSSessionFactory because of underlying class loading error: Type javax.jms.Destination from [Module "deployment.apicurio-studio-api.war" from Service Module Loader] not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2023-01-24 18:57:58,941 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 112) RESTEASY002225: Deploying javax.ws.rs.core.Application: class io.apicurio.hub.api.rest.impl.HubApplication$Proxy$_$$_WeldClientProxy
+2023-01-24 18:57:58,949 INFO  [io.apicurio.hub.api.rest.impl.HubApplication] (ServerService Thread Pool -- 112) 
+------------------------------------------------
+Starting up Apicurio Hub API
+------------------------------------------------
+2023-01-24 18:58:01,037 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 112) WFLYUT0021: Registered web context: '/api-hub' for server 'default-server'
+2023-01-24 18:58:01,443 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "apicurio-studio-api.war" (runtime-name : "apicurio-studio-api.war")
+2023-01-24 18:58:26,412 WARN  [org.keycloak.adapters.KeycloakDeployment] (default task-1) Failed to load URLs from http://localhost:8080/auth/realms/apicurio/.well-known/openid-configuration: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.apache.httpcomponents.core//org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.httpcomponents.core//org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.httpcomponents.core//org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.httpcomponents.core//org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.httpcomponents.core//org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.httpcomponents.core//org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.httpcomponents.core//org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.httpcomponents.core//org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.httpcomponents.core//org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.httpcomponents.core//org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+	at org.apache.httpcomponents.core//org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.KeycloakDeployment.getOidcConfiguration(KeycloakDeployment.java:230)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.KeycloakDeployment.resolveUrls(KeycloakDeployment.java:182)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.KeycloakDeployment.getAuthUrl(KeycloakDeployment.java:251)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.OAuthRequestAuthenticator.getRedirectUri(OAuthRequestAuthenticator.java:175)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.OAuthRequestAuthenticator.loginRedirect(OAuthRequestAuthenticator.java:213)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.OAuthRequestAuthenticator.authenticate(OAuthRequestAuthenticator.java:275)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.RequestAuthenticator.authenticate(RequestAuthenticator.java:138)
+	at org.keycloak.keycloak-wildfly-elytron-oidc-adapter@20.0.2//org.keycloak.adapters.elytron.ElytronRequestAuthenticator.authenticate(ElytronRequestAuthenticator.java:44)
+	at org.keycloak.keycloak-wildfly-elytron-oidc-adapter@20.0.2//org.keycloak.adapters.elytron.KeycloakHttpServerAuthenticationMechanism.evaluateRequest(KeycloakHttpServerAuthenticationMechanism.java:92)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.util.SetMechanismInformationMechanismFactory$1.evaluateRequest(SetMechanismInformationMechanismFactory.java:119)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.util.SocketAddressCallbackServerMechanismFactory$1.evaluateRequest(SocketAddressCallbackServerMechanismFactory.java:82)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.auth.server.SecurityIdentityServerMechanismFactory$1.evaluateRequest(SecurityIdentityServerMechanismFactory.java:85)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.HttpAuthenticator$AuthenticationExchange.authenticate(HttpAuthenticator.java:325)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.HttpAuthenticator$AuthenticationExchange.access$800(HttpAuthenticator.java:300)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.HttpAuthenticator.authenticate(HttpAuthenticator.java:94)
+	at org.wildfly.security.elytron-web.undertow-server@1.10.1.Final//org.wildfly.elytron.web.undertow.server.SecurityContextImpl.authenticate(SecurityContextImpl.java:107)
+	at org.wildfly.security.elytron-web.undertow-server-servlet@1.10.1.Final//org.wildfly.elytron.web.undertow.server.servlet.ServletSecurityContextImpl.authenticate(ServletSecurityContextImpl.java:115)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:55)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AuthenticationConstraintHandler.handleRequest(AuthenticationConstraintHandler.java:53)
+	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletSecurityConstraintHandler.handleRequest(ServletSecurityConstraintHandler.java:59)
+	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at org.wildfly.security.elytron-web.undertow-server-servlet@1.10.1.Final//org.wildfly.elytron.web.undertow.server.servlet.CleanUpHandler.handleRequest(CleanUpHandler.java:38)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at org.keycloak.keycloak-wildfly-elytron-oidc-adapter@20.0.2//org.keycloak.adapters.elytron.KeycloakServletExtension.lambda$handleDeployment$0(KeycloakServletExtension.java:39)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at org.jboss.xnio@3.8.7.Final//org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/java.net.PlainSocketImpl.connect0(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:101)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.apache.httpcomponents.core//org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.httpcomponents.core//org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 63 more
+
+2023-01-24 18:58:26,537 ERROR [io.undertow.request] (default task-1) UT005023: Exception handling request to /studio: java.lang.NullPointerException
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.OAuthRequestAuthenticator.getRedirectUri(OAuthRequestAuthenticator.java:175)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.OAuthRequestAuthenticator.loginRedirect(OAuthRequestAuthenticator.java:213)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.OAuthRequestAuthenticator.authenticate(OAuthRequestAuthenticator.java:275)
+	at org.keycloak.keycloak-adapter-core@20.0.2//org.keycloak.adapters.RequestAuthenticator.authenticate(RequestAuthenticator.java:138)
+	at org.keycloak.keycloak-wildfly-elytron-oidc-adapter@20.0.2//org.keycloak.adapters.elytron.ElytronRequestAuthenticator.authenticate(ElytronRequestAuthenticator.java:44)
+	at org.keycloak.keycloak-wildfly-elytron-oidc-adapter@20.0.2//org.keycloak.adapters.elytron.KeycloakHttpServerAuthenticationMechanism.evaluateRequest(KeycloakHttpServerAuthenticationMechanism.java:92)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.util.SetMechanismInformationMechanismFactory$1.evaluateRequest(SetMechanismInformationMechanismFactory.java:119)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.util.SocketAddressCallbackServerMechanismFactory$1.evaluateRequest(SocketAddressCallbackServerMechanismFactory.java:82)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.auth.server.SecurityIdentityServerMechanismFactory$1.evaluateRequest(SecurityIdentityServerMechanismFactory.java:85)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.HttpAuthenticator$AuthenticationExchange.authenticate(HttpAuthenticator.java:325)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.HttpAuthenticator$AuthenticationExchange.access$800(HttpAuthenticator.java:300)
+	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.http.HttpAuthenticator.authenticate(HttpAuthenticator.java:94)
+	at org.wildfly.security.elytron-web.undertow-server@1.10.1.Final//org.wildfly.elytron.web.undertow.server.SecurityContextImpl.authenticate(SecurityContextImpl.java:107)
+	at org.wildfly.security.elytron-web.undertow-server-servlet@1.10.1.Final//org.wildfly.elytron.web.undertow.server.servlet.ServletSecurityContextImpl.authenticate(ServletSecurityContextImpl.java:115)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:55)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AuthenticationConstraintHandler.handleRequest(AuthenticationConstraintHandler.java:53)
+	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletSecurityConstraintHandler.handleRequest(ServletSecurityConstraintHandler.java:59)
+	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at org.wildfly.security.elytron-web.undertow-server-servlet@1.10.1.Final//org.wildfly.elytron.web.undertow.server.servlet.CleanUpHandler.handleRequest(CleanUpHandler.java:38)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at org.keycloak.keycloak-wildfly-elytron-oidc-adapter@20.0.2//org.keycloak.adapters.elytron.KeycloakServletExtension.lambda$handleDeployment$0(KeycloakServletExtension.java:39)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
+	at io.undertow.core@2.2.17.Final//io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at org.jboss.xnio@3.8.7.Final//org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2023-01-24 19:03:36,696 INFO  [org.keycloak.adapters.KeycloakDeployment] (default task-3) Loaded URLs from http://localhost:8080/auth/realms/apicurio/.well-known/openid-configuration
+2023-01-24 19:03:37,287 DEBUG [io.apicurio.hub.api.rest.impl.CurrentUserResource] (default task-1) Listing API Designs
+2023-01-24 19:03:37,300 DEBUG [io.apicurio.hub.core.storage.jdbc.DataSourceResolver] (default task-1) Creating an instance of Datasource for injection
+2023-01-24 19:03:37,363 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) JDBC Storage constructed successfully.
+2023-01-24 19:03:37,369 DEBUG [io.apicurio.hub.api.rest.impl.AccountsResource] (default task-3) Listing Linked Accounts for pramod.tyagi@gmail.com
+2023-01-24 19:03:37,787 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-1) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:03:37,787 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-1) Config Property: APICURIO_HUB_STORAGE_JDBC_INIT/apicurio.hub.storage.jdbc.init = true
+2023-01-24 19:03:37,788 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Checking to see if the DB is initialized.
+2023-01-24 19:03:38,977 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-1) Config Property: APICURIO_HUB_STORAGE_JDBC_TYPE/apicurio.hub.storage.jdbc.type = h2
+2023-01-24 19:03:38,979 DEBUG [io.apicurio.hub.core.storage.jdbc.SqlStatementsProducer] (default task-1) Creating an instance of ISqlStatements for DB: h2
+2023-01-24 19:03:38,979 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-1) Config Property: APICURIO_HUB_STORAGE_JDBC_TYPE/apicurio.hub.storage.jdbc.type = h2
+2023-01-24 19:03:38,984 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-1) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:03:39,494 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Database was already initialized, skipping.
+2023-01-24 19:03:39,495 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Checking to see if the DB is up-to-date.
+2023-01-24 19:03:39,526 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Getting a list of the user's recent APIs.
+2023-01-24 19:03:39,526 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting activity for User: pramod.tyagi@gmail.com from 0 to 10
+2023-01-24 19:03:39,526 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-3) Getting a list of all Linked Accounts for pramod.tyagi@gmail.com.
+2023-01-24 19:03:39,632 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Selecting a single API Design: 16
+2023-01-24 19:03:39,677 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Selecting a single API Design: 15
+2023-01-24 19:03:39,882 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Selecting a single API Design: 14
+2023-01-24 19:03:39,886 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Selecting a single API Design: 13
+2023-01-24 19:03:39,889 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-1) Selecting a single API Design: 11
+2023-01-24 19:21:55,694 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Listing API Designs
+2023-01-24 19:21:55,695 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Getting a list of all API designs.
+2023-01-24 19:21:57,409 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Getting an API design with ID 11
+2023-01-24 19:21:57,409 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting a single API Design: 11
+2023-01-24 19:21:57,421 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-4) Retrieving contributors list for design with ID: 11
+2023-01-24 19:21:57,421 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-4) Selecting all contributors for API Design: 11
+2023-01-24 19:21:57,434 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-2) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:21:57,442 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:21:57,449 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-4) Retrieving all collaborators for API: 11
+2023-01-24 19:21:57,449 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-4) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:21:57,452 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-4) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:21:57,468 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Loading template activity for API: 11
+2023-01-24 19:21:57,468 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-2) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:21:57,469 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:26:45,224 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Getting an API design with ID 11
+2023-01-24 19:26:45,224 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-4) Retrieving contributors list for design with ID: 11
+2023-01-24 19:26:45,224 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-4) Selecting all contributors for API Design: 11
+2023-01-24 19:26:45,224 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting a single API Design: 11
+2023-01-24 19:26:45,295 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-6) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:26:45,296 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-6) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:26:45,352 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Loading template activity for API: 11
+2023-01-24 19:26:45,353 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-2) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:26:45,354 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:26:45,354 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-5) Retrieving all collaborators for API: 11
+2023-01-24 19:26:45,355 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-5) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:26:45,356 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-5) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:33:08,173 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Getting an API design with ID 11
+2023-01-24 19:33:08,174 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting a single API Design: 11
+2023-01-24 19:33:08,268 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-5) Retrieving all collaborators for API: 11
+2023-01-24 19:33:08,268 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-5) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:08,269 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-5) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:33:08,270 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-10) Loading template activity for API: 11
+2023-01-24 19:33:08,270 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-10) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:08,270 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-9) Retrieving contributors list for design with ID: 11
+2023-01-24 19:33:08,270 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-9) Selecting all contributors for API Design: 11
+2023-01-24 19:33:08,270 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-8) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:08,272 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-10) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:33:08,273 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-8) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:33:17,670 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-10) Getting an API design with ID 11
+2023-01-24 19:33:17,670 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-10) Selecting a single API Design: 11
+2023-01-24 19:33:17,683 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-5) Retrieving all collaborators for API: 11
+2023-01-24 19:33:17,683 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-5) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:17,685 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-5) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:33:17,687 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Loading template activity for API: 11
+2023-01-24 19:33:17,687 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-2) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:17,687 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-8) Retrieving contributors list for design with ID: 11
+2023-01-24 19:33:17,687 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-8) Selecting all contributors for API Design: 11
+2023-01-24 19:33:17,688 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:33:17,692 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-9) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:17,694 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-9) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:33:35,907 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-9) Retrieving contributors list for design with ID: 11
+2023-01-24 19:33:35,907 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-9) Selecting all contributors for API Design: 11
+2023-01-24 19:33:35,914 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-8) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:35,914 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Getting an API design with ID 11
+2023-01-24 19:33:35,914 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting a single API Design: 11
+2023-01-24 19:33:35,915 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-8) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:33:35,922 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-9) Retrieving all collaborators for API: 11
+2023-01-24 19:33:35,922 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-9) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:35,923 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-9) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:33:35,924 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-5) Loading template activity for API: 11
+2023-01-24 19:33:35,925 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-5) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:33:35,926 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-5) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:34:06,460 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-9) Getting an API design with ID 11
+2023-01-24 19:34:06,460 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-9) Selecting a single API Design: 11
+2023-01-24 19:34:06,471 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-8) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:34:06,474 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-5) Loading template activity for API: 11
+2023-01-24 19:34:06,474 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-9) Retrieving contributors list for design with ID: 11
+2023-01-24 19:34:06,474 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-5) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:34:06,474 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-9) Selecting all contributors for API Design: 11
+2023-01-24 19:34:06,477 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Retrieving all collaborators for API: 11
+2023-01-24 19:34:06,477 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-2) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:34:06,523 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-5) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:34:06,523 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-8) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:34:06,523 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:52:07,211 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-2) Retrieving contributors list for design with ID: 11
+2023-01-24 19:52:07,211 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-8) Getting an API design with ID 11
+2023-01-24 19:52:07,211 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-2) Selecting all contributors for API Design: 11
+2023-01-24 19:52:07,211 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-8) Selecting a single API Design: 11
+2023-01-24 19:52:07,310 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-12) Retrieving all collaborators for API: 11
+2023-01-24 19:52:07,310 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-11) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:52:07,311 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-12) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:52:07,312 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-11) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:52:07,312 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-12) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 19:52:07,360 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-13) Loading template activity for API: 11
+2023-01-24 19:52:07,360 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-13) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:52:07,361 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:55:27,685 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-15) Retrieving contributors list for design with ID: 11
+2023-01-24 19:55:27,685 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-15) Selecting all contributors for API Design: 11
+2023-01-24 19:55:27,687 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-14) Getting an API design with ID 11
+2023-01-24 19:55:27,688 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting a single API Design: 11
+2023-01-24 19:55:27,688 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-13) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:55:27,689 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-12) Retrieving all collaborators for API: 11
+2023-01-24 19:55:27,689 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-12) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:55:27,689 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 19:55:27,690 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-16) Loading template activity for API: 11
+2023-01-24 19:55:27,690 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-16) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 19:55:27,693 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-16) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 19:55:27,693 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-12) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 20:06:54,829 DEBUG [io.apicurio.hub.api.rest.impl.AccountsResource] (default task-13) Listing Linked Accounts for pramod.tyagi@gmail.com
+2023-01-24 20:06:54,829 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Getting a list of all Linked Accounts for pramod.tyagi@gmail.com.
+2023-01-24 20:06:54,829 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-14) Retrieving codegen project list for design with ID: 11
+2023-01-24 20:06:54,829 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting a single API Design: 11
+2023-01-24 20:06:54,831 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting codegen projects for API Design: 11
+2023-01-24 20:15:53,568 DEBUG [io.apicurio.hub.api.rest.impl.AccountsResource] (default task-14) Listing Linked Accounts for pramod.tyagi@gmail.com
+2023-01-24 20:15:53,568 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-13) Retrieving codegen project list for design with ID: 11
+2023-01-24 20:15:53,568 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Getting a list of all Linked Accounts for pramod.tyagi@gmail.com.
+2023-01-24 20:15:53,568 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Selecting a single API Design: 11
+2023-01-24 20:15:53,569 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Selecting codegen projects for API Design: 11
+2023-01-24 20:18:31,670 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-14) Retrieving codegen project list for design with ID: 11
+2023-01-24 20:18:31,671 DEBUG [io.apicurio.hub.api.rest.impl.AccountsResource] (default task-13) Listing Linked Accounts for pramod.tyagi@gmail.com
+2023-01-24 20:18:31,671 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting a single API Design: 11
+2023-01-24 20:18:31,671 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Getting a list of all Linked Accounts for pramod.tyagi@gmail.com.
+2023-01-24 20:18:31,713 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting codegen projects for API Design: 11
+2023-01-24 21:23:17,782 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-14) Getting an API design with ID 11
+2023-01-24 21:23:17,782 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting a single API Design: 11
+2023-01-24 21:23:17,858 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-14) Retrieving contributors list for design with ID: 11
+2023-01-24 21:23:17,858 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting all contributors for API Design: 11
+2023-01-24 21:23:17,866 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-14) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 21:23:17,874 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-14) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 21:23:17,874 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-13) Retrieving all collaborators for API: 11
+2023-01-24 21:23:17,874 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-13) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 21:23:17,874 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-17) Loading template activity for API: 11
+2023-01-24 21:23:17,874 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-17) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 21:23:17,882 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-13) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 21:23:17,882 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-17) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 21:37:07,437 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-19) Getting an API design with ID 11
+2023-01-24 21:37:07,437 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-20) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 21:37:07,437 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-19) Selecting a single API Design: 11
+2023-01-24 21:37:07,445 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-20) Selecting activity for API Design: 11 from 0 to 10
+2023-01-24 21:37:07,509 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-18) Retrieving all collaborators for API: 11
+2023-01-24 21:37:07,509 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-18) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 21:37:07,509 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-18) Getting a list of all permissions (collaborators) for API: 11.
+2023-01-24 21:37:07,573 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-21) Retrieving contributors list for design with ID: 11
+2023-01-24 21:37:07,573 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-21) Selecting all contributors for API Design: 11
+2023-01-24 21:37:07,613 DEBUG [io.apicurio.hub.api.rest.impl.DesignsResource] (default task-22) Loading template activity for API: 11
+2023-01-24 21:37:07,613 DEBUG [io.apicurio.studio.shared.config.Configuration] (default task-22) Config Property: APICURIO_SHARE_FOR_EVERYONE/apicurio.share.for.everyone = false
+2023-01-24 21:37:07,621 DEBUG [io.apicurio.hub.core.storage.jdbc.JdbcStorage] (default task-22) Selecting mock activity for API Design: 11 from 0 to 20
+2023-01-24 21:50:40,331 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 112) WFLYUT0022: Unregistered web context: '/api-hub' from server 'default-server'
+2023-01-24 21:50:40,581 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment apicurio-studio-api.war (runtime-name: apicurio-studio-api.war) in 259ms
+2023-01-24 21:50:40,630 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "apicurio-studio-api.war" (runtime-name: "apicurio-studio-api.war")
+2023-01-24 21:50:40,694 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 113) WFLYUT0022: Unregistered web context: '/api-editing' from server 'default-server'
+2023-01-24 21:50:40,886 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment apicurio-studio-ws.war (runtime-name: apicurio-studio-ws.war) in 194ms
+2023-01-24 21:50:40,910 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "apicurio-studio-ws.war" (runtime-name: "apicurio-studio-ws.war")
+2023-01-24 21:50:41,047 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0272: Suspending server
+2023-01-24 21:50:41,056 INFO  [org.jboss.as.ejb3] (management-handler-thread - 2) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-01-24 21:50:41,061 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2023-01-24 21:50:41,092 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0010: Unbound data source [java:jboss/datasources/ApicurioDS]
+2023-01-24 21:50:41,092 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2023-01-24 21:50:41,097 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 116) WFLYUT0022: Unregistered web context: '/studio' from server 'default-server'

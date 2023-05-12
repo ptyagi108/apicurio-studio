@@ -1,0 +1,14 @@
+#properties for the local environment
+ 
+api:
+  id: "123456" 
+   
+#Http Listener Configuration
+http:
+  port: "8081" 
+  request:
+    protocol: "HTTPS"
+    host: ""
+    port: "443"
+    path: 
+      eligibility: ""
