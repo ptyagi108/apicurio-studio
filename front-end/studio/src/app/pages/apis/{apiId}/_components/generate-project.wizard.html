@@ -18,14 +18,14 @@
                     <div class="wizard-pf-steps" *ngIf="!loading && !generating && !generated">
                         <ul class="wizard-pf-steps-indicator wizard-pf-steps-alt-indicator active">
 
-                           <!-- <li class="wizard-pf-step" [class.active]="currentPage === 'generationType'">
+                            <li class="wizard-pf-step" [class.active]="currentPage === 'generationType'">
                                 <a (click)="goTo('generationType')">
                                     <span class="wizard-pf-step-number">1</span>
                                     <span class="wizard-pf-step-title">Select Type</span>
                                 </a>
                             </li>
 
-                            <li class="wizard-pf-step" [class.active]="currentPage === 'projectType'">
+                           <!-- <li class="wizard-pf-step" [class.active]="currentPage === 'projectType'">
                                 <a (click)="goTo('projectType')">
                                     <span class="wizard-pf-step-number">2</span>
                                     <span class="wizard-pf-step-title">Configure Project</span>
@@ -34,7 +34,7 @@
 
                             <li class="wizard-pf-step" [class.active]="currentPage === 'templateType'">
                                 <a (click)="goTo('templateType')">
-                                    <span class="wizard-pf-step-number">1</span>
+                                    <span class="wizard-pf-step-number">2</span>
                                     <span class="wizard-pf-step-title">Configure Template</span>
                                 </a>
                             </li>
@@ -54,7 +54,7 @@
                             </li>-->
                             <li class="wizard-pf-step" [class.active]="currentPage === 'deployment'">
                                 <a (click)="goTo('deployment')">
-                                    <span class="wizard-pf-step-number">2</span>
+                                    <span class="wizard-pf-step-number">3</span>
                                     <span class="wizard-pf-step-title">Deployment</span>
                                 </a>
                             </li>
@@ -67,7 +67,7 @@
                             </li>-->
                             <li class="wizard-pf-step" [class.active]="currentPage === 'location'">
                                 <a (click)="goTo('location')">
-                                    <span class="wizard-pf-step-number">3</span>
+                                    <span class="wizard-pf-step-number">4</span>
                                     <span class="wizard-pf-step-title">Choose Location</span>
                                 </a>
                             </li>
@@ -89,7 +89,7 @@
                                 <p class="blank-slate-pf-secondary-action">Loading information needed by the Project Generation Wizard, please wait...</p>
                             </div>
                             <!-- Generation Type -->
-                            <!--<div class="wizard-pf-contents" *ngIf="!loading && currentPage === 'generationType'">
+                            <div class="wizard-pf-contents" *ngIf="!loading && currentPage === 'generationType'">
                                 <form class="form-horizontal">
                                     <div class="form-group">
                                         <div class="col-sm-10">
@@ -121,7 +121,7 @@
                                     </div>
                                 </form>
                             </div>
-                            &lt;!&ndash; Project Type &ndash;&gt;
+                           <!-- &lt;!&ndash; Project Type &ndash;&gt;
                             <div class="wizard-pf-contents" *ngIf="currentPage === 'projectType'">
                                 <form class="form-horizontal" #projectTypeForm="ngForm" id="projectTypeForm">
                                     <div class="form-group required">
@@ -210,15 +210,14 @@
                                     <div class="form-group">
                                         <div class="col-sm-10">
                                             <input type="radio" name="deployment-type" id="deployment-azure" value="azure"
-                                                   [(ngModel)]="model.monitoring" >
+                                                   [(ngModel)]="model.deployment" >
                                             <label for="deployment-azure" >Azure</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-10">
                                             <input type="radio" name="deployment-type" id="deployment-jenkins" value="jenkins"
-                                                   (click)="resetModel()"
-                                                   [(ngModel)]="model.monitoring">
+                                                   [(ngModel)]="model.deployment">
                                             <label for="deployment-jenkins">Jenkins</label>
                                         </div>
                                     </div>

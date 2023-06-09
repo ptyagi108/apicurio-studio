@@ -34,10 +34,10 @@ export interface GenerateProjectWizardModel {
     generationType: string;
     projectType: string;
     templateType: string;
-    domainType: string;
-    commonServices?: any;
+  //  domainType: string;
+  //  commonServices?: any;
     deployment: string;
-    monitoring: string;
+  //  monitoring: string;
     projectData?: any;
     location: string;
     sourceControlData?: any;
@@ -52,9 +52,9 @@ export interface GenerateProjectWizardModel {
     new Value("Node.js", "nodejs", true)
 ];*/
 
-var PROJECT_TYPES: DropDownOption[] = [
+/*var PROJECT_TYPES: DropDownOption[] = [
     new Value("Muleapp", "muleapp"),
-];
+];*/
 
 var TEMPLATE_TYPES: DropDownOption[] = [
     new Value("Sync", "sync"),
@@ -62,7 +62,7 @@ var TEMPLATE_TYPES: DropDownOption[] = [
     new Value("Batch", "batch"),
 ];
 
-var DOMAIN_TYPES: DropDownOption[] = [
+/*var DOMAIN_TYPES: DropDownOption[] = [
     new Value("Healthcare Provider", "healthcare"),
 ];
 
@@ -76,7 +76,7 @@ var DEPLOY_OPTIONS: DeploymentOption[] = [
 var MONITORING_OPTIONS: MonitoringOption[] = [
     new MonitoringOptionValue("Router Based", "router",false),
     new MonitoringOptionValue("Batch", "batch",false ),
-];
+];*/
 
 @Component({
     selector: "generate-project-wizard",
@@ -99,8 +99,8 @@ export class GenerateProjectWizardComponent {
     public _expectedLoadCount: number = 2;
 
     public _updateProjectOptions: DropDownOption[];
-    public monitoringOptions: MonitoringOption[];
-    public deploymentOptions: DeploymentOption[];
+   // public monitoringOptions: MonitoringOption[];
+  //  public deploymentOptions: DeploymentOption[];
     public model: GenerateProjectWizardModel;
     public sourceControlDataValid: boolean;
 
@@ -133,13 +133,13 @@ export class GenerateProjectWizardComponent {
             generationType: "bootstrap",
             projectType: "muleapp",
             templateType: "sync",
-            domainType: "health",
+          //  domainType: "health",
             projectData: {},
             location: "download",
             sourceControlData: {},
-            commonServices: {},
+         //   commonServices: {},
             deployment: "azure",
-            monitoring: "splunk"
+        //    monitoring: "splunk"
         };
         this._isOpen = true;
         this.generateProjectModal.changes.subscribe( thing => {
@@ -150,7 +150,7 @@ export class GenerateProjectWizardComponent {
         this.loading = true;
         this.generating = false;
         this.generated = false;
-        this.currentPage = "templateType";
+        this.currentPage = "generationType";
         this.sourceControlDataValid = false;
 
         this._loadCount = 0;
@@ -215,24 +215,24 @@ export class GenerateProjectWizardComponent {
         return this._updateProjectOptions;
     }
 
-    public projectTypeOptions(): DropDownOption[] {
+    /*public projectTypeOptions(): DropDownOption[] {
         return PROJECT_TYPES;
-    }
+    }*/
 
     public templateTypeOptions(): DropDownOption[] {
         return TEMPLATE_TYPES;
     }
 
-    public domainTypeOptions(): DropDownOption[] {
+    /*public domainTypeOptions(): DropDownOption[] {
         return DOMAIN_TYPES;
     }
 
     public deployOptions(): DeploymentOption[] {
         return DEPLOY_OPTIONS;
-    }
+    }*/
 
     public isBackButtonEnabled(): boolean {
-        return !this.loading && this.currentPage !== "templateType";
+        return !this.loading && this.currentPage !== "generationType";
     }
 
     public isNextButtonEnabled(): boolean {
@@ -314,12 +314,10 @@ export class GenerateProjectWizardComponent {
 
     public goBack(): void {
         switch (this.currentPage) {
-           /* case "projectType":
+
+            case "templateType":
                 this.currentPage = "generationType";
-                break;*/
-           /* case "templateType":
-                this.currentPage = "projectType";
-                break;*/
+                break;
            /* case "domainType":
                 this.currentPage = "templateType";
                 break;
@@ -343,10 +341,10 @@ export class GenerateProjectWizardComponent {
 
     public goNext(): void {
         switch (this.currentPage) {
-            /*case "generationType":
-                this.currentPage = "projectType";
+            case "generationType":
+                this.currentPage = "templateType";
                 break;
-            case "projectType":
+            /*case "projectType":
                 this.currentPage = "templateType";
                 break;*/
             case "templateType":
@@ -375,17 +373,17 @@ export class GenerateProjectWizardComponent {
             case "generationType":
                 this.currentPage = newPage;
                 break;
-            case "projectType":
+            /*case "projectType":
                 if (this.isPageValid("generationType")) {
                     this.currentPage = newPage;
                 }
-                break;
+                break;*/
             case "templateType":
-                if (this.isPageValid("generationType") && this.isPageValid("projectType")) {
+                if (this.isPageValid("generationType") ) {
                     this.currentPage = newPage;
                 }
                 break;
-            case "domainType":
+           /* case "domainType":
                 if (this.isPageValid("generationType") && this.isPageValid("projectType")&& this.isPageValid("templateType")) {
                     this.currentPage = newPage;
                 }
@@ -394,24 +392,24 @@ export class GenerateProjectWizardComponent {
                 if (this.isPageValid("generationType") && this.isPageValid("projectType")&& this.isPageValid("templateType") && this.isPageValid("domainType")) {
                     this.currentPage = newPage;
                 }
-                break;
+                break;*/
             case "deployment":
-                if (this.isPageValid("generationType") && this.isPageValid("projectType")&& this.isPageValid("templateType") && this.isPageValid("domainType") && this.isPageValid("commonServices")) {
+                if (this.isPageValid("generationType") &&  this.isPageValid("templateType") ) {
                     this.currentPage = newPage;
                 }
                 break;
-            case "monitoring":
+            /*case "monitoring":
                 if (this.isPageValid("generationType") && this.isPageValid("projectType")&& this.isPageValid("templateType") && this.isPageValid("domainType") && this.isPageValid("commonServices")&& this.isPageValid("deployment")) {
                     this.currentPage = newPage;
                 }
-                break;
+                break;*/
             case "location":
-                if (this.isPageValid("generationType") && this.isPageValid("projectType")&& this.isPageValid("templateType") && this.isPageValid("domainType") && this.isPageValid("commonServices")&& this.isPageValid("deployment")&& this.isPageValid("monitoring")) {
+                if (this.isPageValid("generationType") && this.isPageValid("templateType") && this.isPageValid("deployment")) {
                     this.currentPage = newPage;
                 }
                 break;
             case "sourceControl":
-                if (this.isPageValid("generationType") && this.isPageValid("projectType")&& this.isPageValid("templateType") && this.isPageValid("domainType") && this.isPageValid("commonServices")&& this.isPageValid("deployment")&& this.isPageValid("monitoring") && this.isPageValid("location")) {
+                if (this.isPageValid("generationType")&& this.isPageValid("templateType") && this.isPageValid("deployment") && this.isPageValid("location")) {
                     this.currentPage = newPage;
                 }
                 break;
@@ -467,6 +465,8 @@ export class GenerateProjectWizardComponent {
         newProj.projectType = this.model.projectType;
         newProj.projectConfig = this.model.projectData;
         newProj.location = this.model.location;
+        newProj.deployment = this.model.deployment;
+        newProj.templateType = this.model.templateType;
         newProj.publishInfo = this.getPublishInfo();
 
         if (this.model.generationType === "update") {
@@ -514,7 +514,7 @@ export class GenerateProjectWizardComponent {
         if (this.model.location === "download") {
             setTimeout( () => {
                 this.downloadLink.first.nativeElement.click();
-            }, 100);
+            }, 1000);
         }
     }
 
@@ -529,17 +529,18 @@ export class GenerateProjectWizardComponent {
      */
     public updateModelWithProjectInfo(project: CodegenProject): void {
         this.model.projectType = project.type;
-        this.model.projectData.templateType = project.attributes.templateType;;
-        this.model.projectData.domainType = project.attributes.domainType;;
+        this.model.templateType = project.attributes.templateType;
+        this.model.deployment = project.attributes.deployment;
+       // this.model.projectData.domainType = project.attributes.domainType;
         this.model.location = project.attributes.location;
         this.model.projectData.artifactId = project.attributes.artifactId;
         this.model.projectData.groupId = project.attributes.groupId;
         this.model.projectData.javaPackage = project.attributes.javaPackage;
         this.model.projectData.reactive = project.attributes.reactive;
-        this.model.projectData.logging = project.attributes.logging;
-        this.model.projectData.error = project.attributes.error;
-        this.model.projectData.audit = project.attributes.audit;
-        this.model.projectData.notification = project.attributes.notification;
+      //  this.model.projectData.logging = project.attributes.logging;
+      //  this.model.projectData.error = project.attributes.error;
+     //   this.model.projectData.audit = project.attributes.audit;
+      //  this.model.projectData.notification = project.attributes.notification;
         this.model.sourceControlData.type = project.attributes['publish-type'];
         this.model.sourceControlData.model = {};
         this.model.sourceControlData.model.branch = project.attributes['publish-branch'];
@@ -557,13 +558,13 @@ export class GenerateProjectWizardComponent {
             generationType: "bootstrap",
             projectType: "muleapp",
             templateType: "sync",
-            domainType: "health",
+           // domainType: "health",
             projectData: {},
             location: "download",
             sourceControlData: {},
-            commonServices: "logging",
+          //  commonServices: "logging",
             deployment: "azure",
-            monitoring: "splunk"
+           // monitoring: "splunk"
         };
     }
 

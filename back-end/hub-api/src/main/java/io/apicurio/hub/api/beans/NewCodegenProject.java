@@ -28,6 +28,10 @@ public class NewCodegenProject {
     private CodegenProjectType projectType;
     private Map<String, String> projectConfig;
     private CodegenLocation location;
+
+    private CodegenDeployment deployment;
+
+    private CodegenTemplateType templateType;
     private CodegenPublishInfo publishInfo;
     
     /**
@@ -92,4 +96,19 @@ public class NewCodegenProject {
         this.publishInfo = publishInfo;
     }
 
+    public CodegenDeployment getDeployment() {
+        return deployment;
+    }
+
+    public void setDeployment(CodegenDeployment deployment) {
+        this.deployment = deployment;
+    }
+
+    public CodegenTemplateType getTemplateType() {
+        return templateType;
+    }
+
+    public void setTemplateType(CodegenTemplateType templateType) {
+        this.templateType = templateType;
+    }
 }

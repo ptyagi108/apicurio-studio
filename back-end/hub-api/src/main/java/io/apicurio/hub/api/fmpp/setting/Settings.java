@@ -858,6 +858,8 @@ public class Settings {
     private Map engineAttributes = new HashMap();
     private boolean dontTraverseDirs;
     public CodegenProject project;
+    List<String> excludedDirs = new ArrayList<>();
+    List<String> choosenDirs = new ArrayList<>();
 
     // -------------------------------------------------------------------------
     // Public menthods
@@ -903,6 +905,7 @@ public class Settings {
         defs = STD_DEFS;
         defsCmdlNames = STD_DEFS_CMDL_NAMES;
         this.project=project;
+        excludedDirs.addAll(Arrays.asList("sync", "async", "batch", "azure", "jenkins"));
     }
 
     /**
@@ -1643,10 +1646,26 @@ public class Settings {
                         + "It should be one of: none, all, static");
             }
         }
-
+        for (Map.Entry<String, String> entry : project.getAttributes().entrySet()) {
+            String value = entry.getValue();
+            choosenDirs.add(value);
+        }
+        boolean removed = false;
+        for (String str : choosenDirs) {
+            String input = str.trim();
+            for (int j = 0; j < excludedDirs.size(); j++) {
+                if (excludedDirs.get(j).equals(input)) {
+                    excludedDirs.remove(j);
+                    removed = true;
+                    // Reduce the index as the list has shifted
+                    j--;
+                }
+            }
+        }
         // Root directories and source/output files:
         eng.setBaseDir(baseDir);
         eng.setProject(project);
+        eng.setExcludedDirs(excludedDirs);
         // - single-file mode:
         File outputFile = (File) get(NAME_OUTPUT_FILE);
         List sources = (List) get(NAME_SOURCES);

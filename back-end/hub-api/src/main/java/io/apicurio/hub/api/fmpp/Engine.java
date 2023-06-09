@@ -249,6 +249,7 @@ public class Engine {
     private Set<File> processedFiles = new HashSet<File>();
     private FmppOutputWriter out;
     public CodegenProject project;
+    List<String> excludedDirs = new ArrayList<>();
     /**
      * Same as {@link #Engine(Version) Engine((Version) null)}.
      *
@@ -818,15 +819,15 @@ public class Engine {
                         PMODE_NONE, null, null);
             }
         }
-        Map<String, String> directoryPairs = new HashMap<>();
+         /*  Map<String, String> directoryPairs = new HashMap<>();
         directoryPairs.put("azure", "jenkins");
         directoryPairs.put("jenkins", "azure");
-        String chosenDirectory = project.getAttributes().get("deployment");
+        String chosenDirectory = project.getAttributes().get("deployment");*/
         if (!dontTraverseDirs) {
-           // File[] dir = srcDir.listFiles();
-        //   File[] dir = listFiles(srcDir,baseDir);
+            // File[] dir = srcDir.listFiles();
+            File[] dir = listFiles(srcDir,baseDir);
 
-           File[] dir = listDirs(srcDir,chosenDirectory,directoryPairs);
+            //      File[] dir = listDirs(srcDir,chosenDirectory,directoryPairs);
             for (int i = 0; i < dir.length; i++) {
                 File sf = dir[i];
                 String fn = sf.getName();
@@ -849,9 +850,13 @@ public class Engine {
         Files.list(directoryPath).forEach(path -> {
             // Create a java.io.File object for each file and add it to the list
         //    File file = path.toFile();
-            File file = new File(srcDir.getPath(), path.getFileName().toString());
-            fileList.add(file);
+            if(!excludedDirs.contains(path.getFileName().toString()))
+            {
+                File file = new File(srcDir.getPath(), path.getFileName().toString());
+                fileList.add(file);
+            }
         });
+
         return fileList.toArray(new File[0]);
     }
 
@@ -3659,5 +3664,13 @@ public class Engine {
 
     public void setProject(CodegenProject project) {
         this.project = project;
+    }
+
+    public List<String> getExcludedDirs() {
+        return excludedDirs;
+    }
+
+    public void setExcludedDirs(List<String> excludedDirs) {
+        this.excludedDirs = excludedDirs;
     }
 }

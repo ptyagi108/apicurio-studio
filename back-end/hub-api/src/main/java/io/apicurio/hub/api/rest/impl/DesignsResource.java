@@ -1187,6 +1187,9 @@ public class DesignsResource implements IDesignsResource {
             }
             project.getAttributes().put("location", body.getLocation().toString());
             project.getAttributes().put("update-only", Boolean.FALSE.toString());
+            project.getAttributes().put("templateType", body.getTemplateType().toString());
+            project.getAttributes().put("deployment", body.getDeployment().toString());
+
             if (body.getPublishInfo() != null) {
                 if (body.getPublishInfo().getType() != null) {
                     project.getAttributes().put("publish-type", body.getPublishInfo().getType().toString());
@@ -1370,6 +1373,8 @@ public class DesignsResource implements IDesignsResource {
             }
             project.getAttributes().put("location", body.getLocation().toString());
             project.getAttributes().put("update-only", Boolean.TRUE.toString());
+            project.getAttributes().put("templateType", body.getTemplateType().toString());
+            project.getAttributes().put("deployment", body.getDeployment().toString());
             if (body.getPublishInfo() != null) {
                 if (body.getPublishInfo().getType() != null) {
                     project.getAttributes().put("publish-type", body.getPublishInfo().getType().toString());

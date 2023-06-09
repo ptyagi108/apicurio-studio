@@ -1,6 +1,5 @@
-/**
- * @license
- * Copyright 2017 JBoss Inc
+/*
+ * Copyright 2018 JBoss Inc
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,13 +14,13 @@
  * limitations under the License.
  */
 
-export class NewCodegenProject {
+package io.apicurio.hub.api.beans;
 
-    public projectType: string;
-    public projectConfig: any;
-    public location: string;
-    public publishInfo: any;
-    public deployment: string;
-    public templateType: string;
+/**
+ * @author eric.wittmann@gmail.com
+ */
+public enum CodegenDeployment {
+    
+    azure, jenkins
 
 }
